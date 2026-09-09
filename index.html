@@ -49,7 +49,6 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Gold Gradient Text */
         .gold-text {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
@@ -57,7 +56,6 @@
             display: inline-block;
         }
 
-        /* Ambient Background Glows with Pulse Animation */
         .ambient-glow-1 {
             position: absolute;
             top: -100px;
@@ -78,22 +76,21 @@
             100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
         }
 
-        /* Header Navigation */
+        /* Navigation */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 6%;
+            padding: 18px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(5, 5, 5, 0.85);
+            background: rgba(5, 5, 5, 0.88);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
-            transition: all 0.3s ease;
         }
 
         .nav-logo {
@@ -102,11 +99,25 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
-            transition: transform 0.3s ease;
         }
 
-        .nav-logo:hover {
-            transform: scale(1.03);
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-primary);
         }
 
         .nav-actions {
@@ -122,12 +133,6 @@
             color: var(--text-main);
             font-size: 20px;
             cursor: pointer;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .cart-icon-btn:hover {
-            color: var(--gold-primary);
-            transform: scale(1.1);
         }
 
         .cart-badge {
@@ -144,12 +149,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: popBadge 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes popBadge {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
         }
 
         .btn-gold-outline {
@@ -163,42 +162,24 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-gold-outline::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transform: rotate(30deg) translateY(-100%);
-            transition: transform 0.6s ease;
-        }
-
-        .btn-gold-outline:hover::after {
-            transform: rotate(30deg) translateY(100%);
         }
 
         .btn-gold-outline:hover {
             color: #000;
             background: var(--gold-primary);
             box-shadow: var(--shadow-gold);
-            transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             position: relative;
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 130px 20px 80px;
+            padding: 140px 20px 80px;
             background: radial-gradient(ellipse at center, rgba(20, 20, 20, 0.6) 0%, rgba(5, 5, 5, 1) 100%);
-            overflow: hidden;
         }
 
         .hero-watermark-logo {
@@ -215,12 +196,6 @@
             opacity: 0.18;
             pointer-events: none;
             z-index: 1;
-            animation: floatingLogo 7s ease-in-out infinite alternate;
-        }
-
-        @keyframes floatingLogo {
-            0% { transform: translate(-50%, -52%) rotate(0deg) scale(0.98); }
-            100% { transform: translate(-50%, -48%) rotate(2deg) scale(1.03); }
         }
 
         .hero-content {
@@ -247,82 +222,106 @@
         }
 
         .hero p {
-            font-size: 17px;
+            font-size: 16px;
             color: var(--text-muted);
             max-width: 580px;
-            margin: 0 auto;
+            margin: 0 auto 30px;
             font-weight: 300;
         }
 
-        /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            padding: 40px 6% 80px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .hero-btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
         }
 
-        .feature-box {
+        /* Scent Finder / Quiz Widget */
+        .quiz-section {
+            padding: 80px 6%;
+            background: rgba(12, 12, 12, 0.9);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .quiz-card {
+            max-width: 800px;
+            margin: 0 auto;
             background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            padding: 35px 25px;
-            border-radius: 20px;
+            border: 1px solid var(--border-gold);
+            padding: 40px;
+            border-radius: 24px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
 
-        .feature-box:hover {
-            transform: translateY(-8px);
-            border-color: var(--border-gold);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 15px rgba(212, 175, 55, 0.15);
+        .quiz-options {
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
         }
 
-        .feature-icon {
-            font-size: 30px;
-            margin-bottom: 15px;
-            display: inline-block;
-            transition: transform 0.4s ease;
-        }
-
-        .feature-box:hover .feature-icon {
-            transform: scale(1.2) rotate(5deg);
-        }
-
-        .feature-box h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .feature-box p {
-            color: var(--text-muted);
+        .quiz-opt-btn {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
             font-size: 13px;
-            font-weight: 300;
         }
 
-        /* Collection Section */
+        .quiz-opt-btn:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        /* Note Categories Filter */
+        .notes-filter {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .note-chip {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .note-chip.active, .note-chip:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        /* Catalog & Products */
         .catalog-section {
-            padding: 60px 6% 100px;
+            padding: 80px 6% 100px;
             max-width: 1300px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-header h2 {
             font-size: 38px;
             font-weight: 400;
             margin-bottom: 10px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 15px;
         }
 
         .product-grid {
@@ -336,15 +335,15 @@
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             border-color: var(--border-gold);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 20px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
         }
 
         .product-img-wrapper {
@@ -354,18 +353,17 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
         }
 
         .product-img-wrapper i {
             font-size: 60px;
             color: rgba(212, 175, 55, 0.3);
-            transition: all 0.5s ease;
+            transition: all 0.4s ease;
         }
 
         .product-card:hover .product-img-wrapper i {
             color: var(--gold-primary);
-            transform: scale(1.18) rotate(-4deg);
+            transform: scale(1.15);
         }
 
         .product-tag {
@@ -380,7 +378,6 @@
             text-transform: uppercase;
             padding: 4px 12px;
             border-radius: 15px;
-            backdrop-filter: blur(5px);
         }
 
         .product-details {
@@ -402,6 +399,13 @@
             margin-bottom: 20px;
             flex-grow: 1;
             font-weight: 300;
+        }
+
+        .product-notes {
+            font-size: 11px;
+            color: var(--gold-light);
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
         }
 
         .product-bottom {
@@ -435,8 +439,66 @@
             background: var(--gold-gradient);
             color: #000;
             border-color: transparent;
-            transform: scale(1.1);
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Custom Engraving / Gift Banner */
+        .gifting-banner {
+            max-width: 1200px;
+            margin: 60px auto;
+            background: linear-gradient(135deg, rgba(20,20,20,0.9), rgba(10,10,10,0.9)), url('https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=1000') center/cover;
+            border: 1px solid var(--border-gold);
+            border-radius: 24px;
+            padding: 60px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .gifting-text h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 6%;
+            background: rgba(8, 8, 8, 0.8);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .stars {
+            color: var(--gold-primary);
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .client-name {
+            font-size: 14px;
+            font-weight: 600;
         }
 
         /* Cart Drawer */
@@ -453,12 +515,6 @@
             display: none;
             flex-direction: column;
             box-shadow: -10px 0 30px rgba(0,0,0,0.9);
-            animation: slideIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
         }
 
         .cart-modal.open {
@@ -480,11 +536,6 @@
             color: var(--text-muted);
             font-size: 22px;
             cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close-cart:hover {
-            color: #fff;
         }
 
         .cart-items {
@@ -499,12 +550,6 @@
             margin-bottom: 18px;
             padding-bottom: 12px;
             border-bottom: 1px solid var(--glass-border);
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .cart-footer {
@@ -530,12 +575,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-checkout:hover {
-            opacity: 0.9;
-            box-shadow: var(--shadow-gold);
         }
 
         .overlay {
@@ -545,7 +584,6 @@
             backdrop-filter: blur(5px);
             z-index: 1500;
             display: none;
-            animation: fadeIn 0.3s ease;
         }
 
         .overlay.active {
@@ -562,6 +600,7 @@
         }
 
         @media (max-width: 768px) {
+            .nav-links { display: none; }
             .hero h1 { font-size: 38px; }
             .hero-watermark-logo { width: 240px; height: 240px; }
             .cart-modal { max-width: 100%; }
@@ -575,6 +614,14 @@
     <!-- Header Navigation -->
     <header>
         <a href="#" class="nav-logo gold-text">NM PARFUME</a>
+        
+        <ul class="nav-links">
+            <li><a href="#catalog">Kolleksiya</a></li>
+            <li><a href="#scent-finder">Ətir Təyini</a></li>
+            <li><a href="#gifting">Hədiyyəlik</a></li>
+            <li><a href="#reviews">Rəylər</a></li>
+        </ul>
+
         <div class="nav-actions">
             <button class="cart-icon-btn" onclick="toggleCart()">
                 <i class="fa-solid fa-bag-shopping"></i>
@@ -588,42 +635,52 @@
     <section class="hero">
         <div class="hero-watermark-logo"></div>
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-            <span class="hero-subtitle">Haute Parfumerie & Collection</span>
+            <span class="hero-subtitle">Haute Parfumerie & Custom Collection</span>
             <h1>Öz Unikal <span class="gold-text">Auranı</span> Kəşf Et</h1>
             <p>Fransız notlarının lüks toxunuşu, xüsusi hədiyyəlik qablaşdırmalar və fərdiləşdirilmiş premium ətirlər.</p>
+            <div class="hero-btn-group">
+                <a href="#catalog" class="btn-gold-outline" style="background: var(--gold-gradient); color: #000; border: none;">Kolleksiyaya Bax</a>
+                <a href="#scent-finder" class="btn-gold-outline">Ətirini Tap</a>
+            </div>
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="features-grid">
-        <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
-            <i class="fa-solid fa-crown feature-icon gold-text"></i>
-            <h3>Orijinal Ekstraktlar</h3>
-            <p>Ən yüksək konsentrasiyalı, günlərlə qalıcı olan premium fransız yağları.</p>
-        </div>
-        <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
-            <i class="fa-solid fa-truck-ramp-box feature-icon gold-text"></i>
-            <h3>VIP Çatdırılma</h3>
-            <p>Bakı şəhəri daxilində eyni gün içində pulsuz və özəl xidmət.</p>
-        </div>
-        <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
-            <i class="fa-solid fa-box-tissue feature-icon gold-text"></i>
-            <h3>Kustar Qablaşdırma</h3>
-            <p>Möhürlənmiş xüsusi qutu, lüks lentlər və fərdi təbrik kartı.</p>
+    <!-- Interactive Scent Finder Quiz Section -->
+    <section class="quiz-section" id="scent-finder" data-aos="fade-up">
+        <div class="quiz-card">
+            <span class="hero-subtitle">İnteraktiv Xidmət</span>
+            <h2 class="gold-text" style="font-size: 30px; margin-bottom: 10px;">Hansı Ətir Sizə Uyğundur?</h2>
+            <p style="color: var(--text-muted); font-size: 14px;">Aşağıdakı tərzi seçin, sizə uyğun eksklüziv notu tapmağa kömək edək:</p>
+            
+            <div class="quiz-options">
+                <button class="quiz-opt-btn" onclick="recommendPerfume('odunsu')">🔥 Odunsu & Dəri (Dərin)</button>
+                <button class="quiz-opt-btn" onclick="recommendPerfume('sirin')">✨ Vanil & Amber (Şirin)</button>
+                <button class="quiz-opt-btn" onclick="recommendPerfume('svez')">🍃 Sitrus & Briz (Təravətli)</button>
+                <button class="quiz-opt-btn" onclick="recommendPerfume('gul')">🌹 Qızılgül & Nəfis Çiçək</button>
+            </div>
+            <div id="quizResult" style="margin-top: 25px; font-weight: 500; font-size: 15px;"></div>
         </div>
     </section>
 
     <!-- Collection Section -->
-    <section class="catalog-section">
+    <section class="catalog-section" id="catalog">
         <div class="section-header" data-aos="fade-up">
             <h2 class="gold-text">Seçilmiş Kolleksiya</h2>
-            <p>Hər notunda fərqlilik hiss olunan eksklüziv parfümlər</p>
+            <p>Notlar üzrə uyğun ətri filtrləyin və kəşf edin</p>
+        </div>
+
+        <!-- Note Chips Filter -->
+        <div class="notes-filter" data-aos="fade-up">
+            <span class="note-chip active" onclick="filterNotes('all')">Bütün Kolleksiya</span>
+            <span class="note-chip" onclick="filterNotes('oud')">Oud & Kəhrəba</span>
+            <span class="note-chip" onclick="filterNotes('vanilla')">Vanil & Sweet</span>
+            <span class="note-chip" onclick="filterNotes('leather')">Dəri & Odunsu</span>
         </div>
 
         <div class="product-grid">
 
             <!-- Product 1 -->
-            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card" data-note="oud" data-aos="fade-up" data-aos-delay="100">
                 <div class="product-img-wrapper">
                     <span class="product-tag">Best Seller</span>
                     <i class="fa-solid fa-bottle-droplet"></i>
@@ -631,6 +688,7 @@
                 <div class="product-details">
                     <h3 class="product-title">Royal Oud Extrait</h3>
                     <p class="product-desc">Ağac notları, nəfis kəhrəba və dərin vanil tonlarının mükəmməl harmoniyası.</p>
+                    <div class="product-notes"><b>Notlar:</b> Qara Ağac, Kəhrəba, Ənbər</div>
                     <div class="product-bottom">
                         <span class="product-price gold-text">85 AZN</span>
                         <button class="btn-add-cart" onclick="addToCart('Royal Oud Extrait', 85)">
@@ -641,7 +699,7 @@
             </div>
 
             <!-- Product 2 -->
-            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-card" data-note="leather" data-aos="fade-up" data-aos-delay="200">
                 <div class="product-img-wrapper">
                     <span class="product-tag">Exclusive</span>
                     <i class="fa-solid fa-wine-bottle"></i>
@@ -649,6 +707,7 @@
                 <div class="product-details">
                     <h3 class="product-title">Imperial Rose & Leather</h3>
                     <p class="product-desc">Qara dəri notları ilə harmanlanmış, zərif fransız qızılgülü təravəti.</p>
+                    <div class="product-notes"><b>Notlar:</b> İtalyan Dərisi, Qızılgül, Səndəl</div>
                     <div class="product-bottom">
                         <span class="product-price gold-text">95 AZN</span>
                         <button class="btn-add-cart" onclick="addToCart('Imperial Rose & Leather', 95)">
@@ -659,14 +718,15 @@
             </div>
 
             <!-- Product 3 -->
-            <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-card" data-note="vanilla" data-aos="fade-up" data-aos-delay="300">
                 <div class="product-img-wrapper">
-                    <span class="product-tag">Limited</span>
+                    <span class="product-tag">Limited Set</span>
                     <i class="fa-solid fa-gem"></i>
                 </div>
                 <div class="product-details">
                     <h3 class="product-title">Velvet Vanilla Gift Set</h3>
                     <p class="product-desc">Xüsusi hədiyyəlik qutuda: Parfüm + Mini Travel sprey + Lüks şam.</p>
+                    <div class="product-notes"><b>Notlar:</b> Madaqaskar Vanili, Badam, Karamel</div>
                     <div class="product-bottom">
                         <span class="product-price gold-text">120 AZN</span>
                         <button class="btn-add-cart" onclick="addToCart('Velvet Vanilla Gift Set', 120)">
@@ -676,6 +736,42 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- Custom Engraving / Gifting Section -->
+    <section class="gifting-banner" id="gifting" data-aos="fade-up">
+        <div class="gifting-text">
+            <span class="hero-subtitle">Eksklüziv Xidmət</span>
+            <h2 class="gold-text">Flakon üzərində Özəl Həkkolunma</h2>
+            <p style="color: var(--text-muted); max-width: 500px; font-size: 14px;">Sevdiklərinizə unudulmaz hədiyyə bəxş edin. Parfüm flakonunun üzərinə istədiyiniz reza, inisial və ya fərdi təbriki həkk edirik.</p>
+        </div>
+        <a href="https://wa.me/994707150040?text=Salam,%20f%C9%99rdi%20qablaşdırma%20v%C9%99%20h%C9%99kkolunma%20haqqında%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m." target="_blank" class="btn-gold-outline" style="background: var(--gold-gradient); color:#000; border:none; padding:12px 28px;">Sifariş Et</a>
+    </section>
+
+    <!-- Testimonials / Customer Reviews Section -->
+    <section class="testimonials-section" id="reviews" data-aos="fade-up">
+        <div class="section-header">
+            <h2 class="gold-text">Müştəri Rəyləri</h2>
+            <p>Eksklüziv keyfiyyəti sınayan VIP alıcılarımızın fikirləri</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Royal Oud Extrait ətrinin qalıcılığı möhtəşəmdir! Hətta 2 gün keçməsinə baxmayaraq paltardan qoxu getmir."</p>
+                <div class="client-name gold-text">Murad Ə.</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Hədiyyəlik qablaşdırma və flakonun üzərinə ad yazılması xidmətindən istifadə etdim. Yüksək səviyyəli lüks xidmətdir."</p>
+                <div class="client-name gold-text">Aysel M.</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Kuryer çatdırılması çox sürətli idi. Qutu açılışı zamanı hissolunan lüks təravət doğrudan da preumium brend hiss etdirir."</p>
+                <div class="client-name gold-text">Rəşad K.</div>
+            </div>
         </div>
     </section>
 
@@ -703,7 +799,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 NM PARFUME | All Rights Reserved.</p>
+        <p>&copy; 2026 NM PARFUME | Haute Parfumerie & Collection. All Rights Reserved.</p>
     </footer>
 
     <!-- AOS Animation JS -->
@@ -711,7 +807,6 @@
 
     <!-- JavaScript Logic -->
     <script>
-        // Init Scroll Animations
         AOS.init({
             duration: 800,
             once: true,
@@ -719,6 +814,33 @@
         });
 
         let cart = [];
+
+        function recommendPerfume(type) {
+            const res = document.getElementById('quizResult');
+            if(type === 'odunsu') {
+                res.innerHTML = "Sizə Tövsiyə Edirik: <span class='gold-text'>Royal Oud Extrait</span> - Dərin odunsu va kəhrəba notları.";
+            } else if(type === 'sirin') {
+                res.innerHTML = "Sizə Tövsiyə Edirik: <span class='gold-text'>Velvet Vanilla Set</span> - Nəfis vanil və badam harmoniyası.";
+            } else if(type === 'gul' || type === 'svez') {
+                res.innerHTML = "Sizə Tövsiyə Edirik: <span class='gold-text'>Imperial Rose & Leather</span> - Zərif qızılgül və dəri brizləri.";
+            }
+        }
+
+        function filterNotes(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const chips = document.querySelectorAll('.note-chip');
+
+            chips.forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if(category === 'all' || card.dataset.note === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
 
         function addToCart(title, price) {
             cart.push({ title, price });
