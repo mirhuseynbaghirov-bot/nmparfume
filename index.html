@@ -99,7 +99,7 @@
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
         }
 
-        /* Hero Section With Logo Background */
+        /* Hero Section With Transparent Logo Background */
         .hero {
             text-align: center;
             padding: 100px 20px 80px;
@@ -109,33 +109,29 @@
             z-index: 1;
         }
 
-        /* Arxa fondakı Logo watermark/efekti */
         .hero::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 380px;
-            height: 380px;
-            background-image: url('logo.png'); /* Logo şəklinizin yolu */
+            width: 320px;
+            height: 320px;
+            background-image: url('logo.png'); /* Logo faylınızın adı */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.18; /* Şəffaflıq dərəcəsi - yazının rahat oxunması üçün */
-            filter: grayscale(30%) brightness(1.2);
+            opacity: 0.35;
+            mix-blend-mode: screen; /* Kvadrat fonu təmizləyir */
+            filter: contrast(120%) brightness(1.1);
             z-index: -1;
             pointer-events: none;
             animation: logoFloat 6s ease-in-out infinite alternate;
         }
 
         @keyframes logoFloat {
-            0% {
-                transform: translate(-50%, -52%) scale(0.98);
-            }
-            100% {
-                transform: translate(-50%, -48%) scale(1.02);
-            }
+            0% { transform: translate(-50%, -52%) scale(0.98); }
+            100% { transform: translate(-50%, -48%) scale(1.02); }
         }
 
         .hero-badge {
@@ -392,8 +388,8 @@
         /* Responsive Settings */
         @media (max-width: 768px) {
             .hero::before {
-                width: 280px;
-                height: 280px;
+                width: 250px;
+                height: 250px;
             }
             .hero h1 { font-size: 32px; }
             .hero p { font-size: 15px; }
@@ -411,7 +407,7 @@
         </a>
     </header>
 
-    <!-- Hero Banner (Logo Fona Yerləşdirildi) -->
+    <!-- Hero Banner -->
     <section class="hero fade-in">
         <span class="hero-badge">NM Premium Parfume</span>
         <h1>Öz Unikal Qoxunu Kəşf Et</h1>
