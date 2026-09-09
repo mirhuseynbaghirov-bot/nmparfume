@@ -3,512 +3,857 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NM Premium Parfume | Lüks Ətirlər</title>
-    <!-- Font Awesome İkonları -->
+    <title>NM PARFUME | Haute Parfumerie</title>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Pro / Free -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --bg-color: #0b0b0b;
-            --card-bg: #161616;
-            --accent-gold: #d4af37;
-            --accent-gold-hover: #f3e5ab;
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-            --border-color: #262626;
+            --bg-deep: #050505;
+            --bg-card: rgba(18, 18, 18, 0.75);
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --text-main: #f5f5f7;
+            --text-muted: #8e8e93;
+            --border-gold: rgba(212, 175, 55, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow-gold: 0 10px 30px -10px rgba(212, 175, 55, 0.3);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-deep);
             color: var(--text-main);
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
+            line-height: 1.7;
         }
 
-        /* Entry Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Playfair Display', serif;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* Gold Gradient Text */
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
-        /* Header / Navbar */
+        /* Ambient Background Glows */
+        .ambient-glow-1 {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+            filter: blur(50px);
+        }
+
+        /* Header / Navigation */
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            background-color: rgba(11, 11, 11, 0.9);
-            backdrop-filter: blur(12px);
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
-            animation: slideDown 0.6s ease-out;
+            transition: all 0.4s ease;
         }
 
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-
-        .logo {
-            font-size: 22px;
+        .nav-logo {
+            font-size: 24px;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--accent-gold);
+            letter-spacing: 4px;
             text-transform: uppercase;
-            position: relative;
-            background: linear-gradient(90deg, #d4af37, #ffffff, #d4af37);
-            background-size: 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 4s infinite linear;
-        }
-
-        @keyframes shine {
-            0% { background-position: -200%; }
-            100% { background-position: 200%; }
-        }
-
-        .cta-btn-top {
-            background-color: var(--accent-gold);
-            color: #000;
-            padding: 10px 22px;
-            border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
-        .cta-btn-top:hover {
-            background-color: var(--accent-gold-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
 
-        /* Hero Section With Large Focused Logo */
-        .hero {
-            text-align: center;
-            padding: 110px 20px 90px;
-            max-width: 900px;
-            margin: 0 auto;
+        .cart-icon-btn {
             position: relative;
-            z-index: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
         }
 
-        .hero::before {
-            content: '';
+        .cart-icon-btn:hover {
+            color: var(--gold-primary);
+        }
+
+        .cart-badge {
             position: absolute;
-            top: 48%;
+            top: -8px;
+            right: -10px;
+            background: var(--gold-gradient);
+            color: #000;
+            font-size: 11px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-gold-outline {
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gold-outline:hover {
+            color: #000;
+            background: var(--gold-primary);
+            box-shadow: var(--shadow-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 20px 80px;
+            background: radial-gradient(ellipse at center, rgba(20, 20, 20, 0.6) 0%, rgba(5, 5, 5, 1) 100%);
+        }
+
+        .hero-watermark-logo {
+            position: absolute;
+            top: 52%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 480px;
-            height: 480px;
-            background-image: url('logo.png'); /* Logo şəkliniz */
-            background-size: 220%; /* Flakona zoom edib mərkəzə gətirir */
+            width: 380px;
+            height: 380px;
+            background-image: url('yeni-logo.png'); /* Şəffaf PNG loqonuz */
+            background-size: contain;
             background-repeat: no-repeat;
-            background-position: center 38%;
-            opacity: 0.32;
-            mix-blend-mode: screen; /* Bozumtul fonu yox edir */
-            filter: contrast(130%) brightness(1.1);
-            z-index: -1;
+            background-position: center;
+            opacity: 0.18;
             pointer-events: none;
-            animation: logoFloat 6s ease-in-out infinite alternate;
+            z-index: 1;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.2));
+            animation: floating 8s ease-in-out infinite alternate;
         }
 
-        @keyframes logoFloat {
-            0% { transform: translate(-50%, -52%) scale(0.96); }
-            100% { transform: translate(-50%, -46%) scale(1.04); }
+        @keyframes floating {
+            0% { transform: translate(-50%, -54%) scale(0.98); }
+            100% { transform: translate(-50%, -46%) scale(1.02); }
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--accent-gold);
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            animation: pulseGlow 2.5s infinite alternate;
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
         }
 
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.1); }
-            100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .hero-subtitle {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--gold-primary);
+            margin-bottom: 25px;
+            display: block;
+            font-weight: 600;
         }
 
         .hero h1 {
-            font-size: 48px;
-            line-height: 1.25;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
+            font-size: 64px;
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
         }
 
         .hero p {
-            color: var(--text-muted);
             font-size: 18px;
-            margin-bottom: 30px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
         }
 
-        /* Key Features Grid */
-        .features {
+        /* Promo Code Bar */
+        .promo-bar-wrapper {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-gold);
+            padding: 8px 8px 8px 20px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 460px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            margin-top: 10px;
+        }
+
+        .promo-bar-wrapper input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 14px;
+            width: 100%;
+            font-family: inherit;
+        }
+
+        .promo-bar-wrapper input::placeholder {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .btn-apply-promo {
+            background: var(--gold-gradient);
+            color: #000;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-apply-promo:hover {
+            opacity: 0.9;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        #promoStatus {
+            font-size: 13px;
+            margin-top: 12px;
+            min-height: 20px;
+        }
+
+        /* Features Section */
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px 8% 60px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 60px 8% 100px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
-        .feature-card {
-            background-color: var(--card-bg);
-            padding: 35px 20px;
-            border-radius: 16px;
+        .feature-box {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            padding: 40px 30px;
+            border-radius: 20px;
             text-align: center;
-            border: 1px solid var(--border-color);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
         }
 
-        .feature-card:hover {
-            border-color: var(--accent-gold);
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 0%;
+            height: 1px;
+            background: var(--gold-gradient);
+            transition: width 0.4s ease;
+        }
+
+        .feature-box:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.1);
+            border-color: var(--border-gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
-        .feature-card i {
-            font-size: 36px;
-            color: var(--accent-gold);
-            margin-bottom: 18px;
-            transition: transform 0.4s ease;
+        .feature-box:hover::before {
+            width: 60%;
         }
 
-        .feature-card:hover i {
-            transform: scale(1.2) rotate(5deg);
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: inline-block;
         }
 
-        .feature-card h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
+        .feature-box h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
-        .feature-card p {
+        .feature-box p {
             color: var(--text-muted);
             font-size: 14px;
+            font-weight: 300;
         }
 
-        /* Catalog Section */
-        .catalog {
-            padding: 40px 8% 80px;
-            max-width: 1200px;
+        /* Collection Section */
+        .catalog-section {
+            padding: 80px 8% 120px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 30px;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 44px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 16px;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
 
         .product-card {
-            background-color: var(--card-bg);
-            border-radius: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
             overflow: hidden;
-            border: 1px solid var(--border-color);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.4s ease;
+            position: relative;
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(212, 175, 55, 0.5);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+            transform: translateY(-10px);
+            border-color: var(--border-gold);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.1);
         }
 
-        .product-img-placeholder {
-            height: 250px;
-            background-color: #222;
+        .product-img-wrapper {
+            height: 320px;
+            background: radial-gradient(circle at center, rgba(35,35,35,0.8) 0%, rgba(15,15,15,1) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-muted);
-            font-size: 14px;
-            border-bottom: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
         }
 
-        .product-card:hover .product-img-placeholder::after {
-            content: '';
+        .product-img-wrapper i {
+            font-size: 70px;
+            color: rgba(212, 175, 55, 0.3);
+            transition: transform 0.6s ease, color 0.6s ease;
+        }
+
+        .product-card:hover .product-img-wrapper i {
+            transform: scale(1.15) rotate(-3deg);
+            color: var(--gold-primary);
+        }
+
+        .product-tag {
             position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-            transform: skewX(-25deg);
-            animation: sweep 0.8s forwards;
-        }
-
-        @keyframes sweep {
-            to { left: 200%; }
-        }
-
-        .product-info {
-            padding: 22px;
-        }
-
-        .product-info h4 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .product-info p {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
-
-        .order-btn {
-            display: block;
-            width: 100%;
-            background-color: transparent;
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
-            padding: 12px;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .order-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background-color: var(--accent-gold);
-            transition: all 0.3s ease;
-            z-index: -1;
-        }
-
-        .order-btn:hover::before {
-            left: 0;
-        }
-
-        .order-btn:hover {
-            color: #000;
-        }
-
-        /* Contact Section */
-        .contact-box {
-            background: linear-gradient(145deg, #161616, #111111);
-            border: 1px solid var(--border-color);
+            top: 20px;
+            left: 20px;
+            background: rgba(5, 5, 5, 0.7);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-primary);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 14px;
             border-radius: 20px;
-            padding: 45px;
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 80px;
-            position: relative;
-            overflow: hidden;
+            backdrop-filter: blur(8px);
         }
 
-        .contact-box h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
+        .product-details {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
-        .contact-box p {
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background-color: #25D366;
-            color: #fff;
-            padding: 16px 36px;
-            border-radius: 30px;
-            text-decoration: none;
+        .product-title {
+            font-size: 22px;
             font-weight: 600;
-            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 25px;
+            flex-grow: 1;
+            font-weight: 300;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .product-price {
+            font-size: 22px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .btn-add-cart {
+            background: transparent;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            animation: pulseWhatsapp 2s infinite;
         }
 
-        @keyframes pulseWhatsapp {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        .btn-add-cart:hover {
+            background: var(--gold-gradient);
+            color: #000;
+            border-color: transparent;
+            transform: scale(1.08);
         }
 
-        .whatsapp-btn:hover {
-            background-color: #20ba5a;
-            transform: scale(1.05);
+        /* Cart Drawer / Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0; right: -450px;
+            width: 420px;
+            height: 100vh;
+            background: #0a0a0a;
+            border-left: 1px solid var(--border-gold);
+            box-shadow: -20px 0 50px rgba(0,0,0,0.9);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-modal.open {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .cart-header h3 {
+            font-size: 24px;
+        }
+
+        .close-cart {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .cart-footer {
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            background: var(--gold-gradient);
+            color: #000;
+            border: none;
+            padding: 16px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-checkout:hover {
+            opacity: 0.9;
+            box-shadow: var(--shadow-gold);
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1500;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 50px 20px;
+            border-top: 1px solid var(--glass-border);
             color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            font-size: 14px;
+            font-size: 13px;
+            letter-spacing: 1px;
         }
 
-        /* Responsive Settings Mobile */
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero::before {
-                width: 360px;
-                height: 360px;
-                background-size: 240%;
-            }
-            .hero h1 { font-size: 34px; }
-            .hero p { font-size: 15px; }
-            .contact-box { padding: 30px 20px; }
+            .hero h1 { font-size: 42px; }
+            .hero-watermark-logo { width: 280px; height: 280px; }
+            .cart-modal { width: 100%; right: -100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <div class="ambient-glow-1"></div>
+
+    <!-- Header Navigation -->
     <header>
-        <div class="logo">NM PARFUME</div>
-        <a href="https://wa.me/994707150040" target="_blank" class="cta-btn-top">
-            <i class="fa-brands fa-whatsapp"></i> Əlaqə
-        </a>
+        <a href="#" class="nav-logo gold-text">NM PARFUME</a>
+        <div class="nav-actions">
+            <button class="cart-icon-btn" onclick="toggleCart()">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+            </button>
+            <a href="https://wa.me/994707150040" target="_blank" class="btn-gold-outline">VIP Əlaqə</a>
+        </div>
     </header>
 
-    <!-- Hero Banner (Böyüdülmüş Logo İlə) -->
-    <section class="hero fade-in">
-        <span class="hero-badge">NM Premium Parfume</span>
-        <h1>Öz Unikal Qoxunu Kəşf Et</h1>
-        <p>Premium keyfiyyətdə parfüm məhsulları, xüsusi hədiyyəlik qablaşdırmalar və fərdi dizayn seçimləri.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-watermark-logo"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">Haute Parfumerie & Collection</span>
+            <h1>Öz Unikal <span class="gold-text">Auranı</span> Kəşf Et</h1>
+            <p>Fransız notlarının lüks toxunuşu, xüsusi hədiyyəlik qablaşdırmalar və fərdiləşdirilmiş premium ətirlər.</p>
+
+            <!-- Promokod Bölməsi -->
+            <div class="promo-bar-wrapper">
+                <i class="fa-solid fa-ticket gold-text" style="margin-left: 5px;"></i>
+                <input type="text" id="promoInput" placeholder="Eksklüziv promokod daxil edin..." uppercase>
+                <button class="btn-apply-promo" onclick="applyPromo()">Tətbiq Et</button>
+            </div>
+            <div id="promoStatus"></div>
+        </div>
     </section>
 
     <!-- Features -->
-    <section class="features">
-        <div class="feature-card fade-in">
-            <i class="fa-solid fa-gem"></i>
-            <h3>Premium Keyfiyyət</h3>
-            <p>Ən yüksək standartlara cavab verən qalıcı və zərif ətirlər.</p>
+    <section class="features-grid">
+        <div class="feature-box">
+            <i class="fa-solid fa-crown feature-icon gold-text"></i>
+            <h3>Orijinal Ekstraktlar</h3>
+            <p>Ən yüksək konsentrasiyalı, günlərlə qalıcı olan premium fransız yağları.</p>
         </div>
-        <div class="feature-card fade-in">
-            <i class="fa-solid fa-truck-fast"></i>
-            <h3>Bakı Şəhərində Pulsuz</h3>
-            <p>Sifarişləriniz Bakı şəhəri daxilində tamamilə pulsuz çatdırılır.</p>
+        <div class="feature-box">
+            <i class="fa-solid fa-truck-ramp-box feature-icon gold-text"></i>
+            <h3>VIP Çatdırılma</h3>
+            <p>Bakı şəhəri daxilində eyni gün içində pulsuz və özəl xidmət.</p>
         </div>
-        <div class="feature-card fade-in">
-            <i class="fa-solid fa-gift"></i>
-            <h3>Hədiyyəlik Qablaşdırma</h3>
-            <p>İstədiyiniz dizaynda və özəl görünüşdə hədiyyəlik qablaşdırma.</p>
+        <div class="feature-box">
+            <i class="fa-solid fa-box-tissue feature-icon gold-text"></i>
+            <h3>Kustar Qablaşdırma</h3>
+            <p>Möhürlənmiş xüsusi qutu, lüks lentlər və fərdi təbrik kartı.</p>
         </div>
     </section>
 
     <!-- Catalog Section -->
-    <section class="catalog">
-        <h2 class="section-title fade-in">Seçilmiş Ətirlər</h2>
+    <section class="catalog-section">
+        <div class="section-header">
+            <h2 class="gold-text">Seçilmiş Kolleksiya</h2>
+            <p>Hər notunda fərqlilik hiss olunan eksklüziv parfümlər</p>
+        </div>
+
         <div class="product-grid">
 
-            <div class="product-card fade-in">
-                <div class="product-img-placeholder">
-                    [ Qadın Ətiri Şəkli ]
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <span class="product-tag">Best Seller</span>
+                    <i class="fa-solid fa-bottle-droplet"></i>
                 </div>
-                <div class="product-info">
-                    <h4>Qadın Ətirləri Collection</h4>
-                    <p>Zərif, şirin və unudulmaz təravət bəxş edən premium notlar.</p>
-                    <a href="https://wa.me/994707150040?text=Salam,%20Qadın%20ətirləri%20haqqında%20məlumat%20almaq%20istəyirəm." class="order-btn" target="_blank">Sifariş Et</a>
-                </div>
-            </div>
-
-            <div class="product-card fade-in">
-                <div class="product-img-placeholder">
-                    [ Kişi Ətiri Şəkli ]
-                </div>
-                <div class="product-info">
-                    <h4>Kişi Ətirləri Collection</h4>
-                    <p>Xarizmatik, dərin və güclü təsir buraxan premium qoxular.</p>
-                    <a href="https://wa.me/994707150040?text=Salam,%20Kişi%20ətirləri%20haqqında%20məlumat%20almaq%20istəyirəm." class="order-btn" target="_blank">Sifariş Et</a>
+                <div class="product-details">
+                    <h3 class="product-title">Royal Oud Extrait</h3>
+                    <p class="product-desc">Ağac notları, nəfis kəhrəba və dərin vanil tonlarının mükəmməl harmoniyası.</p>
+                    <div class="product-bottom">
+                        <span class="product-price gold-text">85 AZN</span>
+                        <button class="btn-add-cart" onclick="addToCart('Royal Oud Extrait', 85)">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card fade-in">
-                <div class="product-img-placeholder">
-                    [ Hədiyyəlik Set Şəkli ]
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <span class="product-tag">Exclusive</span>
+                    <i class="fa-solid fa-wine-bottle"></i>
                 </div>
-                <div class="product-info">
-                    <h4>Xüsusi Hədiyyə Setləri</h4>
-                    <p>Xüsusi günlər üçün istədiyiniz dizaynda hazırlanan dəstlər.</p>
-                    <a href="https://wa.me/994707150040?text=Salam,%20Hədiyyəlik%20setlər%20haqqında%20məlumat%20almaq%20istəyirəm." class="order-btn" target="_blank">Sifariş Et</a>
+                <div class="product-details">
+                    <h3 class="product-title">Imperial Rose & Leather</h3>
+                    <p class="product-desc">Qara dəri notları ilə harmanlanmış, zərif fransız qızılgülü təravəti.</p>
+                    <div class="product-bottom">
+                        <span class="product-price gold-text">95 AZN</span>
+                        <button class="btn-add-cart" onclick="addToCart('Imperial Rose & Leather', 95)">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <span class="product-tag">Limited</span>
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">Velvet Vanilla Gift Set</h3>
+                    <p class="product-desc">Xüsusi hədiyyəlik qutuda: Parfüm + Mini Travel sprey + Lüks şam.</p>
+                    <div class="product-bottom">
+                        <span class="product-price gold-text">120 AZN</span>
+                        <button class="btn-add-cart" onclick="addToCart('Velvet Vanilla Gift Set', 120)">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Contact CTA -->
-    <section class="contact-box fade-in">
-        <h2>Sualınız Var və ya Sifariş Vermək İstəyirsiniz?</h2>
-        <p>Əlaqə nömrəsi: <strong>070-715-00-40</strong></p>
-        <a href="https://wa.me/994707150040" class="whatsapp-btn" target="_blank">
-            <i class="fa-brands fa-whatsapp fa-xl"></i> WhatsApp ilə Əlaqə
-        </a>
-    </section>
+    <!-- Cart Overlay & Drawer -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3 class="gold-text">Səbətiniz</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Səbətiniz boşdur.</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Cəmi:</span>
+                <span class="gold-text" id="cartTotal">0 AZN</span>
+            </div>
+            <button class="btn-checkout" onclick="checkoutWhatsApp()">Sifarişi Tamamla (WhatsApp)</button>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 NM Premium Parfume. Bütün hüquqlar qorunur.</p>
+        <p>&copy; 2026 NM PARFUME | All Rights Reserved.</p>
     </footer>
 
-    <!-- Scroll Reveal JavaScript -->
+    <!-- JavaScript Logic -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const observerOptions = {
-                threshold: 0.15
-            };
+        let cart = [];
+        let appliedDiscount = 0; // Faizlə endirim
+        let activePromoCode = "";
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
+        // Promokod Yoxlanışı
+        const validPromos = {
+            'NM10': 10,       // 10% endirim
+            'LUXURY20': 20,   // 20% endirim
+            'VIP': 15          // 15% endirim
+        };
 
-            document.querySelectorAll('.fade-in').forEach(element => {
-                observer.observe(element);
+        function applyPromo() {
+            const input = document.getElementById('promoInput').value.trim().toUpperCase();
+            const status = document.getElementById('promoStatus');
+
+            if (validPromos[input]) {
+                appliedDiscount = validPromos[input];
+                activePromoCode = input;
+                status.style.color = "#25D366";
+                status.innerHTML = `<i class="fa-solid fa-circle-check"></i> Tebrikler! ${appliedDiscount}% endirim tətbiq olundu.`;
+                updateCartUI();
+            } else {
+                appliedDiscount = 0;
+                activePromoCode = "";
+                status.style.color = "#ff4d4d";
+                status.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Yanlış və ya vaxtı keçmiş promokod.`;
+            }
+        }
+
+        function addToCart(title, price) {
+            cart.push({ title, price });
+            updateCartUI();
+            toggleCart(true); // Cart pəncərəsini aç
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+
+            cartCount.innerText = cart.length;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Səbətiniz boşdur.</p>';
+                cartTotal.innerText = '0 AZN';
+                return;
+            }
+
+            let subtotal = 0;
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                subtotal += item.price;
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <div>
+                            <h4 style="font-size: 15px; font-weight: 500;">${item.title}</h4>
+                            <span class="gold-text" style="font-size: 14px;">${item.price} AZN</span>
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="background:none; border:none; color:#ff4d4d; cursor:pointer;">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
             });
-        });
+
+            let finalTotal = subtotal;
+            if (appliedDiscount > 0) {
+                finalTotal = subtotal - (subtotal * (appliedDiscount / 100));
+            }
+
+            cartTotal.innerText = `${finalTotal.toFixed(2)} AZN`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCart(forceOpen = false) {
+            const modal = document.getElementById('cartModal');
+            const overlay = document.getElementById('overlay');
+            
+            if (forceOpen) {
+                modal.classList.add('open');
+                overlay.classList.add('active');
+            } else {
+                modal.classList.toggle('open');
+                overlay.classList.toggle('active');
+            }
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert("Səbətiniz boşdur!");
+                return;
+            }
+
+            let message = "Salam, NM Parfume-dən yeni sifarişim var:\n\n";
+            let subtotal = 0;
+
+            cart.forEach((item, i) => {
+                message += `${i + 1}. ${item.title} - ${item.price} AZN\n`;
+                subtotal += item.price;
+            });
+
+            let finalTotal = subtotal;
+            if (appliedDiscount > 0) {
+                finalTotal = subtotal - (subtotal * (appliedDiscount / 100));
+                message += `\n🎟 Promokod: ${activePromoCode} (${appliedDiscount}% Endirim)`;
+            }
+
+            message += `\n💰 Umumi Mebleg: ${finalTotal.toFixed(2)} AZN`;
+
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/994707150040?text=${encoded}`, '_blank');
+        }
     </script>
 </body>
 </html>
