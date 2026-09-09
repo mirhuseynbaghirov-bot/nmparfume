@@ -99,10 +99,10 @@
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
         }
 
-        /* Hero Section With Transparent Logo Background */
+        /* Hero Section With Large Focused Logo */
         .hero {
             text-align: center;
-            padding: 100px 20px 80px;
+            padding: 110px 20px 90px;
             max-width: 900px;
             margin: 0 auto;
             position: relative;
@@ -112,26 +112,26 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 50%;
+            top: 48%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 320px;
-            height: 320px;
-            background-image: url('logo.png'); /* Logo faylınızın adı */
-            background-size: contain;
+            width: 480px;
+            height: 480px;
+            background-image: url('logo.png'); /* Logo şəkliniz */
+            background-size: 220%; /* Flakona zoom edib mərkəzə gətirir */
             background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.35;
-            mix-blend-mode: screen; /* Kvadrat fonu təmizləyir */
-            filter: contrast(120%) brightness(1.1);
+            background-position: center 38%;
+            opacity: 0.32;
+            mix-blend-mode: screen; /* Bozumtul fonu yox edir */
+            filter: contrast(130%) brightness(1.1);
             z-index: -1;
             pointer-events: none;
             animation: logoFloat 6s ease-in-out infinite alternate;
         }
 
         @keyframes logoFloat {
-            0% { transform: translate(-50%, -52%) scale(0.98); }
-            100% { transform: translate(-50%, -48%) scale(1.02); }
+            0% { transform: translate(-50%, -52%) scale(0.96); }
+            100% { transform: translate(-50%, -46%) scale(1.04); }
         }
 
         .hero-badge {
@@ -152,18 +152,18 @@
         }
 
         .hero h1 {
-            font-size: 46px;
+            font-size: 48px;
             line-height: 1.25;
             margin-bottom: 20px;
             letter-spacing: 1px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
         }
 
         .hero p {
             color: var(--text-muted);
             font-size: 18px;
             margin-bottom: 30px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
         }
 
         /* Key Features Grid */
@@ -385,13 +385,14 @@
             font-size: 14px;
         }
 
-        /* Responsive Settings */
+        /* Responsive Settings Mobile */
         @media (max-width: 768px) {
             .hero::before {
-                width: 250px;
-                height: 250px;
+                width: 360px;
+                height: 360px;
+                background-size: 240%;
             }
-            .hero h1 { font-size: 32px; }
+            .hero h1 { font-size: 34px; }
             .hero p { font-size: 15px; }
             .contact-box { padding: 30px 20px; }
         }
@@ -407,7 +408,7 @@
         </a>
     </header>
 
-    <!-- Hero Banner -->
+    <!-- Hero Banner (Böyüdülmüş Logo İlə) -->
     <section class="hero fade-in">
         <span class="hero-badge">NM Premium Parfume</span>
         <h1>Öz Unikal Qoxunu Kəşf Et</h1>
