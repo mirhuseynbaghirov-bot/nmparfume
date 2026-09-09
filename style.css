@@ -1,0 +1,18 @@
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    background-image: url('logo.png'); /* Logo şəkliniz */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.35;
+    mix-blend-mode: screen; /* Kvadrat fonu yox edir və yalnız logonu göstərir */
+    pointer-events: none;
+    z-index: -1;
+    animation: logoFloat 6s ease-in-out infinite alternate;
+}
