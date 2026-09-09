@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NM PARFUME | Luxury Collection</title>
-    <!-- Fonts & Icons -->
+    <title>NM PARFUME | Haute Parfumerie</title>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     
     <style>
         :root {
@@ -26,22 +29,23 @@
 
         html, body {
             max-width: 100vw;
-            overflow-x: hidden;
+            overflow-x: hidden !important;
             margin: 0;
             padding: 0;
             background-color: var(--bg-deep);
             color: var(--text-main);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.5;
+            line-height: 1.7;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, .brand-font {
             font-family: 'Playfair Display', serif;
         }
 
@@ -52,510 +56,722 @@
             display: inline-block;
         }
 
-        /* Header */
+        .ambient-glow-1 {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+            filter: blur(50px);
+            animation: pulseGlow 6s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.5; transform: translateX(-50%) scale(0.9); }
+            100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        }
+
+        /* Navigation */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 15px 5%;
+            padding: 18px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(5, 5, 5, 0.95);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(5, 5, 5, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
         }
 
         .nav-logo {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-icon-btn {
+            position: relative;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: var(--gold-gradient);
+            color: #000;
+            font-size: 11px;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn-gold-outline {
             border: 1px solid var(--gold-primary);
             color: var(--gold-primary);
-            padding: 6px 14px;
-            border-radius: 30px;
+            padding: 8px 18px;
+            border-radius: 40px;
             text-decoration: none;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+        }
+
+        .btn-gold-outline:hover {
+            color: #000;
+            background: var(--gold-primary);
+            box-shadow: var(--shadow-gold);
         }
 
         /* Hero */
         .hero {
-            padding: 100px 20px 20px;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 140px 20px 60px;
+            background: radial-gradient(ellipse at center, rgba(20, 20, 20, 0.6) 0%, rgba(5, 5, 5, 1) 100%);
+        }
+
+        .hero-watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 320px;
+            background-image: url('yeni-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
-            margin: 0 auto;
         }
 
         .hero-subtitle {
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             color: var(--gold-primary);
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             display: block;
             font-weight: 600;
         }
 
         .hero h1 {
-            font-size: 32px;
+            font-size: 56px;
             font-weight: 400;
+            line-height: 1.15;
             margin-bottom: 20px;
         }
 
-        /* Search Section */
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto 20px;
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 580px;
+            margin: 0 auto 30px;
+            font-weight: 300;
         }
 
-        .search-box {
+        /* Search Section */
+        .search-section {
+            padding: 60px 6% 80px;
+            max-width: 1000px;
+            margin: 0 auto;
             position: relative;
+            z-index: 10;
+        }
+
+        .search-box-wrapper {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(18, 18, 18, 0.85);
+            border: 1px solid var(--border-gold);
+            padding: 18px 25px 18px 55px;
+            border-radius: 50px;
+            color: var(--text-main);
+            font-size: 16px;
+            outline: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .search-input:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold-primary);
+            font-size: 18px;
+        }
+
+        .search-results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .perfume-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .perfume-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .perfume-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .perfume-info span {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .perfume-price {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .btn-add-search {
+            background: transparent;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 14px 20px 14px 45px;
-            background: rgba(20, 20, 20, 0.9);
-            border: 1px solid var(--border-gold);
-            border-radius: 40px;
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 18px;
-            color: var(--gold-primary);
-            font-size: 16px;
-        }
-
-        /* Category Filter Chips */
-        .category-filter {
-            display: flex;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .btn-add-search:hover {
+            background: var(--gold-gradient);
+            color: #000;
+            border-color: transparent;
+        }
+
+        /* Gifting Banner */
+        .gifting-banner {
+            max-width: 1200px;
+            margin: 40px auto 80px;
+            background: linear-gradient(135deg, rgba(20,20,20,0.9), rgba(10,10,10,0.9));
+            border: 1px solid var(--border-gold);
+            border-radius: 24px;
+            padding: 50px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
             flex-wrap: wrap;
         }
 
-        .cat-chip {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--glass-border);
-            color: var(--text-muted);
-            padding: 7px 16px;
-            border-radius: 20px;
-            font-size: 11px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .gifting-text h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
         }
 
-        .cat-chip.active {
-            border-color: var(--gold-primary);
-            color: #000;
-            background: var(--gold-gradient);
-            font-weight: 600;
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 6%;
+            background: rgba(8, 8, 8, 0.8);
+            border-top: 1px solid var(--glass-border);
         }
 
-        /* Catalog Section */
-        .catalog-section {
-            padding: 10px 5% 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title-wrap {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .section-title-wrap h2 {
-            font-size: 26px;
-            font-weight: 400;
-        }
-
-        .product-grid {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 40px auto 0;
         }
 
-        .product-card {
+        .testimonial-card {
             background: var(--bg-card);
             border: 1px solid var(--glass-border);
-            border-radius: 14px;
-            padding: 18px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
+            padding: 30px;
+            border-radius: 20px;
         }
 
-        .badge-popular {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--gold-gradient);
-            color: #000;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 12px;
-            text-transform: uppercase;
-        }
-
-        .product-brand {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .stars {
             color: var(--gold-primary);
-            margin-bottom: 4px;
-            font-weight: 600;
+            font-size: 12px;
+            margin-bottom: 12px;
         }
 
-        .product-title {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        .product-volume {
-            font-size: 11px;
+        .testimonial-card p {
+            font-size: 13px;
             color: var(--text-muted);
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            font-style: italic;
         }
 
-        .btn-order-wa {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            width: 100%;
-            background: transparent;
-            border: 1px solid var(--border-gold);
-            color: var(--gold-light);
-            padding: 8px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 11px;
+        .client-name {
+            font-size: 14px;
             font-weight: 600;
-            text-transform: uppercase;
         }
 
-        .btn-order-wa:hover {
+        /* Cart Drawer */
+        .cart-modal {
+            position: fixed;
+            top: 0; right: 0;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: #0a0a0a;
+            border-left: 1px solid var(--border-gold);
+            z-index: 2000;
+            padding: 30px 25px;
+            display: none;
+            flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.9);
+        }
+
+        .cart-modal.open {
+            display: flex;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .close-cart {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .cart-footer {
+            padding-top: 15px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .btn-checkout {
+            width: 100%;
             background: var(--gold-gradient);
             color: #000;
+            border: none;
+            padding: 14px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
         }
 
-        .no-results {
-            text-align: center;
-            grid-column: 1 / -1;
-            padding: 40px 20px;
-            color: var(--text-muted);
-            font-size: 14px;
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            z-index: 1500;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
         }
 
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             border-top: 1px solid var(--glass-border);
             color: var(--text-muted);
-            font-size: 11px;
+            font-size: 12px;
+            letter-spacing: 1px;
         }
 
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 26px; }
-            .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
-            .product-card { padding: 14px; }
-            .product-title { font-size: 14px; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 38px; }
+            .hero-watermark-logo { width: 240px; height: 240px; }
+            .cart-modal { max-width: 100%; }
         }
     </style>
 </head>
 <body>
 
+    <div class="ambient-glow-1"></div>
+
     <!-- Header Navigation -->
     <header>
         <a href="#" class="nav-logo gold-text">NM PARFUME</a>
-        <a href="https://wa.me/994707150040" target="_blank" class="btn-gold-outline"><i class="fa-brands fa-whatsapp"></i> VIP Əlaqə</a>
+        
+        <ul class="nav-links">
+            <li><a href="#search-section">Ətir Axtarışı</a></li>
+            <li><a href="#gifting">Hədiyyəlik</a></li>
+            <li><a href="#reviews">Rəylər</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="cart-icon-btn" onclick="toggleCart()">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+            </button>
+            <a href="https://wa.me/994707150040" target="_blank" class="btn-gold-outline">VIP Əlaqə</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <span class="hero-subtitle">Haute Parfumerie Collection</span>
-        <h1>Axtardığınız <span class="gold-text">Ətri Tapın</span></h1>
-        
-        <!-- Live Search -->
-        <div class="search-container">
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Ətir və ya brend adı yazın... (Məs: Sauvage, Creed)">
+        <div class="hero-watermark-logo"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <span class="hero-subtitle">Haute Parfumerie & Custom Collection</span>
+            <h1>Öz Unikal <span class="gold-text">Auranı</span> Kəşf Et</h1>
+            <p>Sevdiyiniz brend və ya not üzrə istənilən ətri anında axtarın və sifariş edin.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Search Section -->
+    <section class="search-section" id="search-section" data-aos="fade-up">
+        <div class="search-box-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="searchInput" class="search-input" placeholder="Ətir adını və ya brendi yazın (məs: Baccarat, Creed, Tom Ford)..." oninput="handleSearch()">
+        </div>
+
+        <div id="searchResults" class="search-results-grid">
+            <!-- Search results dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- Custom Engraving / Gifting Section -->
+    <section class="gifting-banner" id="gifting" data-aos="fade-up">
+        <div class="gifting-text">
+            <span class="hero-subtitle">Eksklüziv Xidmət</span>
+            <h2 class="gold-text">Flakon üzərində Özəl Həkkolunma</h2>
+            <p style="color: var(--text-muted); max-width: 500px; font-size: 14px;">Sevdiklərinizə unudulmaz hədiyyə bəxş edin. Parfüm flakonunun üzərinə istədiyiniz imza, inisial və ya fərdi təbriki həkk edirik.</p>
+        </div>
+        <a href="https://wa.me/994707150040?text=Salam,%20f%C9%99rdi%20qablaşdırma%20v%C9%99%20h%C9%99kkolunma%20haqqında%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m." target="_blank" class="btn-gold-outline" style="background: var(--gold-gradient); color:#000; border:none; padding:12px 28px;">Sifariş Et</a>
+    </section>
+
+    <!-- Testimonials / Customer Reviews Section -->
+    <section class="testimonials-section" id="reviews" data-aos="fade-up">
+        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+            <h2 class="gold-text" style="font-size: 34px;">Müştəri Rəyləri</h2>
+            <p style="color: var(--text-muted);">Eksklüziv keyfiyyəti sınayan VIP alıcılarımızın fikirləri</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Axtardığım Baccarat Rouge 540 ətrini dərhal tapdım. Qalıcılığı və təravəti mükəmməldir!"</p>
+                <div class="client-name gold-text">Murad Ə.</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Hədiyyəlik qablaşdırma və flakonun üzərinə ad yazılması xidmətindən istifadə etdim. Yüksək səviyyəli lüks xidmətdir."</p>
+                <div class="client-name gold-text">Aysel M.</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Kuryer çatdırılması çox sürətli idi. Qutu açılışı zamanı hissolunan lüks təravət doğrudan da premium brend hiss etdirir."</p>
+                <div class="client-name gold-text">Rəşad K.</div>
             </div>
         </div>
-
-        <!-- Category Filter Chips -->
-        <div class="category-filter">
-            <button class="cat-chip active" id="btn-popular" onclick="showPopular()">🔥 Ən Populyarlar</button>
-            <button class="cat-chip" id="btn-all" onclick="filterGender('all')">Bütün Kolleksiya</button>
-            <button class="cat-chip" id="btn-men" onclick="filterGender('men')">Kişilər</button>
-            <button class="cat-chip" id="btn-women" onclick="filterGender('women')">Qadınlar</button>
-            <button class="cat-chip" id="btn-unisex" onclick="filterGender('unisex')">Uniseks</button>
-        </div>
     </section>
 
-    <!-- Catalog Section -->
-    <section class="catalog-section">
-        <div class="section-title-wrap">
-            <h2 id="sectionTitle" class="gold-text">Ən Populyar Ətirlər</h2>
+    <!-- Cart Overlay & Modal -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3 class="gold-text">Səbətiniz</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Səbətiniz boşdur.</p>
         </div>
 
-        <div class="product-grid" id="productContainer">
-            <!-- JS vasitəsilə yüklənir -->
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Cəmi:</span>
+                <span class="gold-text" id="cartTotal">0 AZN</span>
+            </div>
+            <button class="btn-checkout" onclick="checkoutWhatsApp()">Sifarişi Tamamla (WhatsApp)</button>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 NM PARFUME | Luxury Collection. All Rights Reserved.</p>
+        <p>&copy; 2026 NM PARFUME | Haute Parfumerie & Collection. All Rights Reserved.</p>
     </footer>
 
+    <!-- AOS Animation JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- JavaScript Logic -->
     <script>
-        const perfumes = [
-            // POPULAR
-            { brand: "Creed", name: "Aventus", vol: "100 ml", gender: "men", popular: true },
-            { brand: "Dior", name: "Sauvage", vol: "100 ml", gender: "men", popular: true },
-            { brand: "Baccarat", name: "Rouge 540", vol: "70 ml", gender: "unisex", popular: true },
-            
-            // KİŞİ
-            { brand: "Amouage", name: "Epic Man", vol: "100 ml", gender: "men" },
-            { brand: "Amouage", name: "Interlude Man", vol: "100 ml", gender: "men" },
-            { brand: "Armani", name: "Stronger With You Amber", vol: "100 ml", gender: "men" },
-            { brand: "Armani", name: "Stronger With You Intensely", vol: "100 ml", gender: "men" },
-            { brand: "Armani", name: "Stronger With You Leather", vol: "100 ml", gender: "men" },
-            { brand: "Armani", name: "Stronger With You Oud", vol: "100 ml", gender: "men" },
-            { brand: "Armani", name: "Stronger With You Parfum", vol: "100 ml", gender: "men" },
-            { brand: "Armani", name: "Stronger With You Sandalwood", vol: "100 ml", gender: "men" },
-            { brand: "Burberry", name: "Hero", vol: "100 ml", gender: "men" },
-            { brand: "Bvlgari", name: "Le Gemme Tygar", vol: "100 ml", gender: "men" },
-            { brand: "Chanel", name: "Allure Homme Sport", vol: "100 ml", gender: "men" },
-            { brand: "Chanel", name: "Bleu de Chanel Parfum", vol: "100 ml", gender: "men" },
-            { brand: "Clive Christian", name: "Amber Wood", vol: "50 ml", gender: "men" },
-            { brand: "Clive Christian", name: "Hedonistic", vol: "50 ml", gender: "men" },
-            { brand: "Clive Christian", name: "Town & Country", vol: "50 ml", gender: "men" },
-            { brand: "Creed", name: "Absolu Aventus", vol: "100 ml", gender: "men" },
-            { brand: "Dior", name: "Fahrenheit", vol: "100 ml", gender: "men" },
-            { brand: "Dior", name: "Homme Intense", vol: "100 ml", gender: "men" },
-            { brand: "Dior", name: "Homme Sport", vol: "100 ml", gender: "men" },
-            { brand: "Dior", name: "Sauvage Elixir", vol: "60 ml", gender: "men" },
-            { brand: "Jean Paul Gaultier", name: "Le Male Blue", vol: "125 ml", gender: "men" },
-            { brand: "Jean Paul Gaultier", name: "Le Male Elixir", vol: "125 ml", gender: "men" },
-            { brand: "Jean Paul Gaultier", name: "Le Male Le Parfum", vol: "125 ml", gender: "men" },
-            { brand: "Jean Paul Gaultier", name: "Ultra Male", vol: "125 ml", gender: "men" },
-            { brand: "Louis Vuitton", name: "Cactus Garden", vol: "100 ml", gender: "men" },
-            { brand: "Louis Vuitton", name: "Imagination", vol: "100 ml", gender: "men" },
-            { brand: "Louis Vuitton", name: "L'Immensité", vol: "100 ml", gender: "men" },
-            { brand: "Roja", name: "Apex Eau Intense", vol: "100 ml", gender: "men" },
-            { brand: "Roja", name: "Elysium Pour Homme", vol: "100 ml", gender: "men" },
-            { brand: "Tom Ford", name: "Oud Wood", vol: "100 ml", gender: "men" },
-            { brand: "Versace", name: "Eau Fraîche Extreme", vol: "100 ml", gender: "men" },
-            { brand: "Versace", name: "Eros", vol: "100 ml", gender: "men" },
-            { brand: "Versace", name: "Eros Energy Pour Homme", vol: "100 ml", gender: "men" },
-            { brand: "Versace", name: "Eros Flame", vol: "100 ml", gender: "men" },
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
 
-            // QADIN
-            { brand: "Amouage", name: "Honour Woman", vol: "100 ml", gender: "women" },
-            { brand: "Burberry", name: "Goddess", vol: "100 ml", gender: "women" },
-            { brand: "Burberry", name: "Her", vol: "100 ml", gender: "women" },
-            { brand: "Burberry", name: "Her Elixir", vol: "100 ml", gender: "women" },
-            { brand: "Casamorati", name: "Gran Ballo", vol: "100 ml", gender: "women" },
-            { brand: "Casamorati", name: "Lira", vol: "100 ml", gender: "women" },
-            { brand: "Clive Christian", name: "1872 Feminine", vol: "50 ml", gender: "women" },
-            { brand: "Dolce & Gabbana", name: "Devotion Eau de Parfum", vol: "100 ml", gender: "women" },
-            { brand: "Dolce & Gabbana", name: "Devotion Eau de Parfum Intense", vol: "100 ml", gender: "women" },
-            { brand: "Dolce & Gabbana", name: "My Devotion Eau de Parfum", vol: "100 ml", gender: "women" },
-            { brand: "Givenchy", name: "Irresistible", vol: "100 ml", gender: "women" },
-            { brand: "Givenchy", name: "Irresistible Rose Velvet", vol: "100 ml", gender: "women" },
-            { brand: "Gucci", name: "Bloom", vol: "100 ml", gender: "women" },
-            { brand: "Gucci", name: "Flora Gorgeous Gardenia", vol: "100 ml", gender: "women" },
-            { brand: "Gucci", name: "Flora Gorgeous Gardenia Intense", vol: "100 ml", gender: "women" },
-            { brand: "Gucci", name: "Flora Gorgeous Jasmine", vol: "100 ml", gender: "women" },
-            { brand: "Gucci", name: "Flora Gorgeous Magnolia", vol: "100 ml", gender: "women" },
-            { brand: "Gucci", name: "Flora Gorgeous Orchid", vol: "100 ml", gender: "women" },
-            { brand: "Guerlain", name: "Cherry Oud", vol: "100 ml", gender: "women" },
-            { brand: "Jean Paul Gaultier", name: "La Belle", vol: "125 ml", gender: "women" },
-            { brand: "Jimmy Choo", name: "I Want Choo", vol: "100 ml", gender: "women" },
-            { brand: "Jimmy Choo", name: "I Want Choo Forever", vol: "100 ml", gender: "women" },
-            { brand: "Jimmy Choo", name: "I Want Choo Le Parfum", vol: "100 ml", gender: "women" },
-            { brand: "Jimmy Choo", name: "I Want Choo With Love", vol: "100 ml", gender: "women" },
-            { brand: "Kilian", name: "Good Girl Gone Bad", vol: "50 ml", gender: "women" },
-            { brand: "Miss Dior", name: "Blooming Bouquet", vol: "100 ml", gender: "women" },
-            { brand: "Miss Dior", name: "Essence", vol: "100 ml", gender: "women" },
-            { brand: "Montale", name: "Intense Café", vol: "100 ml", gender: "women" },
-            { brand: "Montale", name: "Pure Gold", vol: "100 ml", gender: "women" },
-            { brand: "Montale", name: "Rose Elixir", vol: "100 ml", gender: "women" },
-            { brand: "Mugler", name: "Alien", vol: "90 ml", gender: "women" },
-            { brand: "Prada", name: "Paradoxe", vol: "90 ml", gender: "women" },
-            { brand: "Prada", name: "Paradoxe Orchidea Edition", vol: "90 ml", gender: "women" },
-            { brand: "Prada", name: "Paradoxe Pulp Edition", vol: "90 ml", gender: "women" },
-            { brand: "Tom Ford", name: "Electric Cherry", vol: "100 ml", gender: "women" },
-            { brand: "Tom Ford", name: "Lost Cherry", vol: "100 ml", gender: "women" },
-            { brand: "Yves Saint Laurent", name: "Libre Vanille Couture", vol: "90 ml", gender: "women" },
-
-            // UNISEKS
-            { brand: "Amouage", name: "Guidance", vol: "100 ml", gender: "unisex" },
-            { brand: "Amouage", name: "Guidance 46", vol: "100 ml", gender: "unisex" },
-            { brand: "Amouage", name: "Love Delight", vol: "100 ml", gender: "unisex" },
-            { brand: "Amouage", name: "The Gift Of Kings", vol: "100 ml", gender: "unisex" },
-            { brand: "Armani Privé", name: "Rose d'Arabie", vol: "100 ml", gender: "unisex" },
-            { brand: "Armani Privé", name: "Rouge Malachite", vol: "100 ml", gender: "unisex" },
-            { brand: "Armani Privé", name: "Vert Malachite", vol: "100 ml", gender: "unisex" },
-            { brand: "Byredo", name: "Animalique", vol: "100 ml", gender: "unisex" },
-            { brand: "Byredo", name: "Bal d'Afrique", vol: "100 ml", gender: "unisex" },
-            { brand: "Byredo", name: "Gypsy Water", vol: "100 ml", gender: "unisex" },
-            { brand: "Casamorati", name: "Mefisto", vol: "100 ml", gender: "unisex" },
-            { brand: "Christian Dior Paris", name: "Ambre Nuit", vol: "125 ml", gender: "unisex" },
-            { brand: "Christian Dior Paris", name: "Bois d'Argent", vol: "125 ml", gender: "unisex" },
-            { brand: "Christian Dior Paris", name: "Rouge Trafalgar", vol: "125 ml", gender: "unisex" },
-            { brand: "Ex Nihilo", name: "Blue Talisman", vol: "100 ml", gender: "unisex" },
-            { brand: "Ex Nihilo", name: "Fleur Narcotique", vol: "100 ml", gender: "unisex" },
-            { brand: "Ex Nihilo", name: "Gold Immortals Extrait", vol: "100 ml", gender: "unisex" },
-            { brand: "Guerlain", name: "Patchouli Paris", vol: "100 ml", gender: "unisex" },
-            { brand: "Guerlain", name: "Tobacco Honey", vol: "100 ml", gender: "unisex" },
-            { brand: "Hermès", name: "Ambre Narguilé", vol: "100 ml", gender: "unisex" },
-            { brand: "Kilian", name: "Angels' Share", vol: "50 ml", gender: "unisex" },
-            { brand: "Kilian", name: "Black Phantom", vol: "50 ml", gender: "unisex" },
-            { brand: "Kilian", name: "Intoxicated", vol: "50 ml", gender: "unisex" },
-            { brand: "Louis Vuitton", name: "Nuit de Feu", vol: "100 ml", gender: "unisex" },
-            { brand: "Louis Vuitton", name: "Spell On You", vol: "100 ml", gender: "unisex" },
-            { brand: "Louis Vuitton", name: "Symphony", vol: "100 ml", gender: "unisex" },
-            { brand: "Mancera", name: "Cedrat Boise", vol: "120 ml", gender: "unisex" },
-            { brand: "Mancera", name: "Instant Crush", vol: "120 ml", gender: "unisex" },
-            { brand: "Mancera", name: "Red Tobacco", vol: "120 ml", gender: "unisex" },
-            { brand: "Mancera", name: "Roses Vanille", vol: "120 ml", gender: "unisex" },
-            { brand: "Mancera", name: "Tonka Cola", vol: "120 ml", gender: "unisex" },
-            { brand: "Matiere Premiere", name: "Vanilla Powder", vol: "100 ml", gender: "unisex" },
-            { brand: "Montale", name: "Black Aoud", vol: "100 ml", gender: "unisex" },
-            { brand: "Montale", name: "Chocolate Greedy", vol: "100 ml", gender: "unisex" },
-            { brand: "Montale", name: "Roses Musk", vol: "100 ml", gender: "unisex" },
-            { brand: "Montale", name: "Starry Nights", vol: "100 ml", gender: "unisex" },
-            { brand: "Montale", name: "Vanille Absolu", vol: "100 ml", gender: "unisex" },
-            { brand: "Nasomatto", name: "Black Afgano", vol: "30 ml", gender: "unisex" },
-            { brand: "Orto Parisi", name: "Megamare", vol: "50 ml", gender: "unisex" },
-            { brand: "Orto Parisi", name: "Terroni", vol: "50 ml", gender: "unisex" },
-            { brand: "Sospiro", name: "Assento", vol: "100 ml", gender: "unisex" },
-            { brand: "Sospiro", name: "Erba Pura", vol: "100 ml", gender: "unisex" },
-            { brand: "Tiziana Terenzi", name: "Andromeda", vol: "100 ml", gender: "unisex" },
-            { brand: "Tiziana Terenzi", name: "Kirke", vol: "100 ml", gender: "unisex" },
-            { brand: "Tom Ford", name: "Bitter Peach", vol: "100 ml", gender: "unisex" },
-            { brand: "Tom Ford", name: "Figue Erotique", vol: "100 ml", gender: "unisex" },
-            { brand: "Tom Ford", name: "Fucking Fabulous", vol: "100 ml", gender: "unisex" },
-            { brand: "Tom Ford", name: "Tobacco Vanille", vol: "100 ml", gender: "unisex" },
-            { brand: "Xerjoff", name: "Accento", vol: "100 ml", gender: "unisex" },
-            { brand: "Xerjoff", name: "Alexandria II", vol: "100 ml", gender: "unisex" },
-            { brand: "Xerjoff", name: "Amabile", vol: "100 ml", gender: "unisex" },
-            { brand: "Xerjoff", name: "Erba Pura", vol: "100 ml", gender: "unisex" },
-            { brand: "Xerjoff", name: "More Than Words", vol: "100 ml", gender: "unisex" },
-            { brand: "Xerjoff", name: "Naxos", vol: "100 ml", gender: "unisex" }
+        // Full Database from Perfume Catalogue PDF
+        const perfumeDatabase = [
+            { name: "Baccarat Rouge 540", brand: "Maison Francis Kurkdjian", price: 95 },
+            { name: "Aventus", brand: "Creed", price: 90 },
+            { name: "Lost Cherry", brand: "Tom Ford", price: 85 },
+            { name: "Tobacco Vanille", brand: "Tom Ford", price: 85 },
+            { name: "Oud Wood", brand: "Tom Ford", price: 85 },
+            { name: "Sauvage Elixir", brand: "Dior", price: 80 },
+            { name: "Delina Exclusif", brand: "Parfums de Marly", price: 90 },
+            { name: "Layton", brand: "Parfums de Marly", price: 85 },
+            { name: "Megamare", brand: "Orto Parisi", price: 85 },
+            { name: "Ganymede", brand: "Marc-Antoine Barrois", price: 90 },
+            { name: "Baccarat Rouge 540 Extrait", brand: "MFK", price: 110 },
+            { name: "Erba Pura", brand: "Xerjoff", price: 85 },
+            { name: "Naxos", brand: "Xerjoff", price: 90 },
+            { name: "Black Afgano", brand: "Nasomatto", price: 80 },
+            { name: "Good Girl Gone Bad", brand: "By Kilian", price: 95 },
+            { name: "Angels' Share", brand: "By Kilian", price: 95 },
+            { name: "Baccarat Grand Soir", brand: "MFK", price: 85 },
+            { name: "Bleu de Chanel Extrait", brand: "Chanel", price: 75 },
+            { name: "Gipsy Water", brand: "Byredo", price: 80 },
+            { name: "Bal d'Afrique", brand: "Byredo", price: 80 }
         ];
 
-        function renderList(list, title) {
-            const container = document.getElementById('productContainer');
-            document.getElementById('sectionTitle').innerText = title;
-            container.innerHTML = '';
+        let cart = [];
 
-            if(!list || list.length === 0) {
-                container.innerHTML = `<div class="no-results"><i class="fa-solid fa-circle-exclamation" style="font-size: 24px; margin-bottom: 8px; color: var(--gold-primary);"></i><br>Ətir tapılmadı.</div>`;
-                return;
-            }
-
-            list.forEach(p => {
-                const waMessage = encodeURIComponent(`Salam, NM Parfume. Mən bu ətir haqqında məlumat almaq və sifariş etmək istəyirəm:\n\n*Brend:* ${p.brand}\n*Ətir:* ${p.name}\n*Həcm:* ${p.vol}`);
-                const popularBadge = p.popular ? `<span class="badge-popular">Populyar</span>` : '';
-
-                container.innerHTML += `
-                    <div class="product-card">
-                        ${popularBadge}
-                        <div>
-                            <div class="product-brand">${p.brand}</div>
-                            <h3 class="product-title">${p.name}</h3>
-                        </div>
-                        <div>
-                            <div class="product-volume"><i class="fa-solid fa-flask"></i> ${p.vol}</div>
-                            <a href="https://wa.me/994707150040?text=${waMessage}" target="_blank" class="btn-order-wa">
-                                <i class="fa-brands fa-whatsapp"></i> Sifariş Et
-                            </a>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        function showPopular() {
-            setActiveChip('btn-popular');
-            document.getElementById('searchInput').value = '';
-            const popularList = perfumes.filter(p => p.popular);
-            renderList(popularList, 'Ən Populyar Ətirlər');
-        }
-
-        function filterGender(gender) {
-            document.getElementById('searchInput').value = '';
-            setActiveChip(`btn-${gender}`);
-
-            let title = 'Bütün Kolleksiya';
-            if(gender === 'men') title = 'Kişilər Üçün Ətirlər';
-            if(gender === 'women') title = 'Qadınlar Üçün Ətirlər';
-            if(gender === 'unisex') title = 'Uniseks Ətirlər';
-
-            const filtered = gender === 'all' ? perfumes : perfumes.filter(p => p.gender === gender);
-            renderList(filtered, title);
+        function renderInitialPerfumes() {
+            // Show top popular perfumes when page loads
+            renderSearchResults(perfumeDatabase.slice(0, 6));
         }
 
         function handleSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            
-            if(query === '') {
-                showPopular();
+            if (query === '') {
+                renderSearchResults(perfumeDatabase.slice(0, 6));
                 return;
             }
 
-            document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
-
-            const results = perfumes.filter(p => 
-                p.name.toLowerCase().includes(query) || 
-                p.brand.toLowerCase().includes(query)
+            const filtered = perfumeDatabase.filter(item => 
+                item.name.toLowerCase().includes(query) || 
+                item.brand.toLowerCase().includes(query)
             );
 
-            renderList(results, `Axtarış Nəticələri (${results.length})`);
+            renderSearchResults(filtered);
         }
 
-        function setActiveChip(id) {
-            document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
-            const btn = document.getElementById(id);
-            if(btn) btn.classList.add('active');
+        function renderSearchResults(items) {
+            const container = document.getElementById('searchResults');
+            
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 30px;">
+                        Axtarışa uyğun ətir tapılmadı. Özel sifariş üçün <a href="https://wa.me/994707150040" style="color: var(--gold-primary);">WhatsApp</a> üzərindən yazın.
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = items.map(p => `
+                <div class="perfume-card">
+                    <div class="perfume-info">
+                        <h4>${p.name}</h4>
+                        <span>${p.brand}</span>
+                        <div class="perfume-price gold-text">${p.price} AZN</div>
+                    </div>
+                    <button class="btn-add-search" onclick="addToCart('${p.name}', ${p.price})">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            `).join('');
         }
 
-        window.onload = function() {
-            showPopular();
-        };
+        function addToCart(title, price) {
+            cart.push({ title, price });
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+
+            cartCount.innerText = cart.length;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Səbətiniz boşdur.</p>';
+                cartTotal.innerText = '0 AZN';
+                return;
+            }
+
+            let subtotal = 0;
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                subtotal += item.price;
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <div>
+                            <h4 style="font-size: 14px; font-weight: 500;">${item.title}</h4>
+                            <span class="gold-text" style="font-size: 13px;">${item.price} AZN</span>
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="background:none; border:none; color:#ff4d4d; cursor:pointer;">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            cartTotal.innerText = `${subtotal} AZN`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCart(forceOpen = false) {
+            const modal = document.getElementById('cartModal');
+            const overlay = document.getElementById('overlay');
+            
+            if (forceOpen) {
+                modal.classList.add('open');
+                overlay.classList.add('active');
+            } else {
+                modal.classList.toggle('open');
+                overlay.classList.toggle('active');
+            }
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert("Səbətiniz boşdur!");
+                return;
+            }
+
+            let message = "Salam, NM Parfume-dən yeni sifarişim var:\n\n";
+            let subtotal = 0;
+
+            cart.forEach((item, i) => {
+                message += `${i + 1}. ${item.title} - ${item.price} AZN\n`;
+                subtotal += item.price;
+            });
+
+            message += `\n💰 Ümumi Məbləğ: ${subtotal} AZN`;
+
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/994707150040?text=${encoded}`, '_blank');
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', renderInitialPerfumes);
     </script>
 </body>
 </html>
