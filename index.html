@@ -1807,5 +1807,17 @@ function checkoutWhatsApp() {
 
 </script>
 
+<script>
+fetch('https://api.telegram.org/bot8680349411:AAFUHAA3DRvWNWUT3vqwwTRuR72ZJeLN1UY/sendMessage', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({
+    chat_id: '626333359',
+    text: '🔔 Yeni ziyarətçi!\nSəhifə: ' + window.location.href + '\nVaxt: ' + new Date().toLocaleString('az-AZ')
+  })
+});
+</script>
+
+    
 </body>
 </html>
