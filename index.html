@@ -3,18 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 <title>NM PARFUME | Haute Parfumerie</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
 <style>
-
 :root {
     --bg-deep:#050505;
     --bg-card:rgba(18,18,18,.75);
@@ -27,7 +22,6 @@
     --glass-border:rgba(255,255,255,.08);
     --shadow-gold:0 10px 30px -10px rgba(212,175,55,.3);
 }
-
 html,body {
     max-width:100vw;
     overflow-x:hidden!important;
@@ -38,25 +32,21 @@ html,body {
     font-family:'Plus Jakarta Sans',sans-serif;
     line-height:1.7;
 }
-
 * {
     margin:0;
     padding:0;
     box-sizing:border-box;
     scroll-behavior:smooth;
 }
-
 h1,h2,h3,h4,.brand-font {
     font-family:'Playfair Display',serif;
 }
-
 .gold-text {
     background:var(--gold-gradient);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     display:inline-block;
 }
-
 .ambient-glow-1 {
     position:absolute;
     top:-100px;
@@ -71,14 +61,11 @@ h1,h2,h3,h4,.brand-font {
     filter:blur(50px);
     animation:pulseGlow 6s infinite alternate ease-in-out;
 }
-
 @keyframes pulseGlow {
     0%{opacity:.5;transform:translateX(-50%) scale(.9)}
     100%{opacity:1;transform:translateX(-50%) scale(1.1)}
 }
-
 /* NAVIGATION */
-
 header {
     position:fixed;
     top:0;
@@ -94,7 +81,6 @@ header {
     border-bottom:1px solid var(--glass-border);
     z-index:1000;
 }
-
 .nav-logo {
     font-size:22px;
     font-weight:700;
@@ -102,13 +88,11 @@ header {
     text-transform:uppercase;
     text-decoration:none;
 }
-
 .nav-links {
     display:flex;
     gap:25px;
     list-style:none;
 }
-
 .nav-links a {
     color:var(--text-muted);
     text-decoration:none;
@@ -117,17 +101,14 @@ header {
     text-transform:uppercase;
     transition:color .3s;
 }
-
 .nav-links a:hover {
     color:var(--gold-primary);
 }
-
 .nav-actions {
     display:flex;
     align-items:center;
     gap:20px;
 }
-
 .cart-icon-btn {
     position:relative;
     background:transparent;
@@ -136,7 +117,6 @@ header {
     font-size:20px;
     cursor:pointer;
 }
-
 .cart-badge {
     position:absolute;
     top:-8px;
@@ -152,7 +132,6 @@ header {
     align-items:center;
     justify-content:center;
 }
-
 .btn-gold-outline {
     border:1px solid var(--gold-primary);
     color:var(--gold-primary);
@@ -165,15 +144,12 @@ header {
     text-transform:uppercase;
     transition:all .4s ease;
 }
-
 .btn-gold-outline:hover {
     color:#000;
     background:var(--gold-primary);
     box-shadow:var(--shadow-gold);
 }
-
 /* HERO */
-
 .hero {
     position:relative;
     min-height:90vh;
@@ -184,7 +160,6 @@ header {
     padding:140px 20px 80px;
     background:radial-gradient(ellipse at center,rgba(20,20,20,.6) 0%,rgba(5,5,5,1) 100%);
 }
-
 .hero-watermark-logo {
     position:absolute;
     top:50%;
@@ -200,13 +175,11 @@ header {
     pointer-events:none;
     z-index:1;
 }
-
 .hero-content {
     position:relative;
     z-index:2;
     max-width:800px;
 }
-
 .hero-subtitle {
     font-size:12px;
     text-transform:uppercase;
@@ -216,14 +189,12 @@ header {
     display:block;
     font-weight:600;
 }
-
 .hero h1 {
     font-size:56px;
     font-weight:400;
     line-height:1.15;
     margin-bottom:20px;
 }
-
 .hero p {
     font-size:16px;
     color:var(--text-muted);
@@ -231,22 +202,18 @@ header {
     margin:0 auto 30px;
     font-weight:300;
 }
-
 .hero-btn-group {
     display:flex;
     gap:15px;
     justify-content:center;
 }
-
 /* QUIZ */
-
 .quiz-section {
     padding:80px 6%;
     background:rgba(12,12,12,.9);
     border-top:1px solid var(--glass-border);
     border-bottom:1px solid var(--glass-border);
 }
-
 .quiz-card {
     max-width:800px;
     margin:0 auto;
@@ -257,7 +224,6 @@ header {
     text-align:center;
     box-shadow:0 20px 50px rgba(0,0,0,.8);
 }
-
 .quiz-options {
     display:flex;
     gap:15px;
@@ -265,7 +231,6 @@ header {
     margin-top:25px;
     flex-wrap:wrap;
 }
-
 .quiz-opt-btn {
     background:rgba(255,255,255,.03);
     border:1px solid var(--glass-border);
@@ -276,43 +241,35 @@ header {
     transition:all .3s;
     font-size:13px;
 }
-
 .quiz-opt-btn:hover {
     border-color:var(--gold-primary);
     color:var(--gold-primary);
     background:rgba(212,175,55,.05);
 }
-
 /* SEARCH */
-
 .search-section {
     max-width:1100px;
     margin:0 auto;
     padding:70px 6% 20px;
 }
-
 .search-header {
     text-align:center;
     margin-bottom:28px;
 }
-
 .search-header h2 {
     font-size:38px;
     font-weight:400;
     margin-bottom:8px;
 }
-
 .search-header p {
     color:var(--text-muted);
     font-size:14px;
 }
-
 .search-box {
     position:relative;
     max-width:850px;
     margin:auto;
 }
-
 .search-input {
     width:100%;
     height:68px;
@@ -327,18 +284,15 @@ header {
     transition:.35s;
     box-shadow:0 15px 45px rgba(0,0,0,.4);
 }
-
 .search-input::placeholder {
     color:#777;
 }
-
 .search-input:focus {
     border-color:var(--gold-primary);
     box-shadow:
         0 0 0 4px rgba(212,175,55,.07),
         0 15px 50px rgba(0,0,0,.55);
 }
-
 .search-icon {
     position:absolute;
     right:26px;
@@ -348,7 +302,6 @@ header {
     font-size:21px;
     pointer-events:none;
 }
-
 .search-results {
     display:none;
     max-width:850px;
@@ -359,18 +312,15 @@ header {
     overflow:hidden;
     box-shadow:0 25px 70px rgba(0,0,0,.75);
 }
-
 .search-results.show {
     display:block;
 }
-
 .search-count {
     padding:15px 22px;
     color:var(--text-muted);
     font-size:12px;
     border-bottom:1px solid var(--glass-border);
 }
-
 .search-result {
     display:flex;
     align-items:center;
@@ -380,22 +330,18 @@ header {
     border-bottom:1px solid var(--glass-border);
     transition:.25s;
 }
-
 .search-result:last-child {
     border-bottom:none;
 }
-
 .search-result:hover {
     background:rgba(212,175,55,.055);
 }
-
 .search-info {
     display:flex;
     align-items:center;
     gap:16px;
     min-width:0;
 }
-
 .search-bottle {
     width:46px;
     height:46px;
@@ -408,20 +354,17 @@ header {
     background:rgba(212,175,55,.08);
     border:1px solid rgba(212,175,55,.2);
 }
-
 .search-name {
     font-family:'Playfair Display',serif;
     font-size:17px;
     color:#f5f5f7;
 }
-
 .search-brand {
     font-size:10px;
     color:var(--text-muted);
     text-transform:uppercase;
     letter-spacing:1.5px;
 }
-
 .search-whatsapp {
     flex-shrink:0;
     width:42px;
@@ -436,50 +379,41 @@ header {
     text-decoration:none;
     transition:.3s;
 }
-
 .search-whatsapp:hover {
     background:var(--gold-primary);
     color:#000;
 }
-
 .search-empty {
     padding:40px 20px;
     text-align:center;
     color:var(--text-muted);
 }
-
 .search-empty i {
     display:block;
     font-size:32px;
     color:rgba(212,175,55,.4);
     margin-bottom:12px;
 }
-
 /* CATALOG */
-
 .catalog-section {
     padding:55px 6% 100px;
     max-width:1300px;
     margin:0 auto;
 }
-
 .section-header {
     text-align:center;
     margin-bottom:50px;
 }
-
 .section-header h2 {
     font-size:38px;
     font-weight:400;
     margin-bottom:10px;
 }
-
 .product-grid {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:30px;
 }
-
 .product-card {
     background:var(--bg-card);
     border:1px solid var(--glass-border);
@@ -489,15 +423,12 @@ header {
     display:flex;
     flex-direction:column;
 }
-
 .product-card:hover {
     transform:translateY(-8px);
     border-color:var(--border-gold);
     box-shadow:0 20px 40px rgba(0,0,0,.7);
 }
-
 /* ŞƏKİLLƏR */
-
 .product-img-wrapper {
     height:280px;
     background:radial-gradient(
@@ -511,7 +442,6 @@ header {
     position:relative;
     overflow:hidden;
 }
-
 .product-img-wrapper img {
     width:100%;
     height:100%;
@@ -520,11 +450,9 @@ header {
     display:block;
     transition:transform .4s ease;
 }
-
 .product-card:hover .product-img-wrapper img {
     transform:scale(1.06);
 }
-
 .product-tag {
     position:absolute;
     top:15px;
@@ -539,20 +467,17 @@ header {
     padding:4px 12px;
     border-radius:15px;
 }
-
 .product-details {
     padding:25px;
     display:flex;
     flex-direction:column;
     flex-grow:1;
 }
-
 .product-title {
     font-size:20px;
     font-weight:600;
     margin-bottom:8px;
 }
-
 .product-desc {
     color:var(--text-muted);
     font-size:13px;
@@ -560,14 +485,12 @@ header {
     flex-grow:1;
     font-weight:300;
 }
-
 .product-notes {
     font-size:11px;
     color:var(--gold-light);
     margin-bottom:15px;
     letter-spacing:.5px;
 }
-
 .product-bottom {
     display:flex;
     align-items:center;
@@ -575,11 +498,9 @@ header {
     padding-top:15px;
     border-top:1px solid var(--glass-border);
 }
-
 .product-price {
     display:none;
 }
-
 .btn-add-cart {
     background:transparent;
     border:1px solid var(--gold-primary);
@@ -593,15 +514,12 @@ header {
     cursor:pointer;
     transition:.3s;
 }
-
 .btn-add-cart:hover {
     background:var(--gold-gradient);
     color:#000;
     border-color:transparent;
 }
-
 /* GIFTING */
-
 .gifting-banner {
     max-width:1200px;
     margin:60px auto;
@@ -617,20 +535,16 @@ header {
     gap:40px;
     flex-wrap:wrap;
 }
-
 .gifting-text h2 {
     font-size:34px;
     margin-bottom:15px;
 }
-
 /* TESTIMONIALS */
-
 .testimonials-section {
     padding:80px 6%;
     background:rgba(8,8,8,.8);
     border-top:1px solid var(--glass-border);
 }
-
 .testimonials-grid {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -638,34 +552,28 @@ header {
     max-width:1200px;
     margin:40px auto 0;
 }
-
 .testimonial-card {
     background:var(--bg-card);
     border:1px solid var(--glass-border);
     padding:30px;
     border-radius:20px;
 }
-
 .stars {
     color:var(--gold-primary);
     font-size:12px;
     margin-bottom:12px;
 }
-
 .testimonial-card p {
     font-size:13px;
     color:var(--text-muted);
     margin-bottom:15px;
     font-style:italic;
 }
-
 .client-name {
     font-size:14px;
     font-weight:600;
 }
-
 /* CART */
-
 .cart-modal {
     position:fixed;
     top:0;
@@ -681,11 +589,9 @@ header {
     flex-direction:column;
     box-shadow:-10px 0 30px rgba(0,0,0,.9);
 }
-
 .cart-modal.open {
     display:flex;
 }
-
 .cart-header {
     display:flex;
     justify-content:space-between;
@@ -694,7 +600,6 @@ header {
     padding-bottom:15px;
     border-bottom:1px solid var(--glass-border);
 }
-
 .close-cart {
     background:transparent;
     border:none;
@@ -702,12 +607,10 @@ header {
     font-size:22px;
     cursor:pointer;
 }
-
 .cart-items {
     flex-grow:1;
     overflow-y:auto;
 }
-
 .cart-item {
     display:flex;
     justify-content:space-between;
@@ -716,12 +619,10 @@ header {
     padding-bottom:12px;
     border-bottom:1px solid var(--glass-border);
 }
-
 .cart-footer {
     padding-top:15px;
     border-top:1px solid var(--glass-border);
 }
-
 .btn-checkout {
     width:100%;
     background:var(--gold-gradient);
@@ -734,7 +635,6 @@ header {
     letter-spacing:1px;
     cursor:pointer;
 }
-
 .overlay {
     position:fixed;
     top:0;
@@ -746,11 +646,9 @@ header {
     z-index:1500;
     display:none;
 }
-
 .overlay.active {
     display:block;
 }
-
 footer {
     text-align:center;
     padding:40px 20px;
@@ -759,191 +657,133 @@ footer {
     font-size:12px;
     letter-spacing:1px;
 }
-
 @media(max-width:768px) {
-
     .nav-links {
         display:none;
     }
-
     .hero h1 {
         font-size:38px;
     }
-
     .hero-watermark-logo {
         width:240px;
         height:240px;
     }
-
     .cart-modal {
         max-width:100%;
     }
-
     .search-section {
         padding-left:5%;
         padding-right:5%;
     }
-
     .search-input {
         height:58px;
         font-size:13px;
         padding-left:20px;
     }
-
     .search-result {
         padding:15px;
     }
-
     .search-name {
         font-size:15px;
     }
-
     .search-whatsapp {
         width:38px;
         height:38px;
     }
-
     .product-img-wrapper {
         height:280px;
     }
-
 }
-
 </style>
 </head>
-
 <body>
-
 <div class="ambient-glow-1"></div>
-
 <header>
-
 <a href="#" class="nav-logo gold-text">NM PARFUME</a>
-
 <ul class="nav-links">
 <li><a href="#catalog">Kolleksiya</a></li>
 <li><a href="#scent-finder">Ətir Təyini</a></li>
 <li><a href="#gifting">Hədiyyəlik</a></li>
 <li><a href="#reviews">Rəylər</a></li>
 </ul>
-
 <div class="nav-actions">
-
 <button class="cart-icon-btn" onclick="toggleCart()">
 <i class="fa-solid fa-bag-shopping"></i>
 <span class="cart-badge" id="cartCount">0</span>
 </button>
-
 <a href="https://wa.me/994707150040" target="_blank" class="btn-gold-outline">
 VIP Əlaqə
 </a>
-
 </div>
-
 </header>
-
 <!-- HERO -->
-
 <section class="hero">
-
 <div class="hero-watermark-logo"></div>
-
 <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-
 <span class="hero-subtitle">
 Haute Parfumerie & Custom Collection
 </span>
-
 <h1>
 Öz Unikal <span class="gold-text">Auranı</span> Kəşf Et
 </h1>
-
 <p>
 Fransız notlarının lüks toxunuşu, xüsusi hədiyyəlik qablaşdırmalar və fərdiləşdirilmiş premium ətirlər.
 </p>
-
 <div class="hero-btn-group">
-
 <a href="#catalog"
 class="btn-gold-outline"
 style="background:var(--gold-gradient);color:#000;border:none;">
 Kolleksiyaya Bax
 </a>
-
 <a href="#scent-finder" class="btn-gold-outline">
 Ətirini Tap
 </a>
-
 </div>
-
 </div>
 </section>
-
 <!-- QUIZ -->
-
 <section class="quiz-section" id="scent-finder" data-aos="fade-up">
-
 <div class="quiz-card">
-
 <span class="hero-subtitle">İnteraktiv Xidmət</span>
-
 <h2 class="gold-text" style="font-size:30px;margin-bottom:10px;">
 Hansı Ətir Sizə Uyğundur?
 </h2>
-
 <p style="color:var(--text-muted);font-size:14px;">
 Aşağıdakı tərzi seçin, sizə uyğun eksklüziv notu tapmağa kömək edək:
 </p>
-
 <div class="quiz-options">
-
 <button class="quiz-opt-btn" onclick="recommendPerfume('odunsu')">
 🔥 Odunsu & Dəri (Dərin)
 </button>
-
 <button class="quiz-opt-btn" onclick="recommendPerfume('sirin')">
 ✨ Vanil & Amber (Şirin)
 </button>
-
 <button class="quiz-opt-btn" onclick="recommendPerfume('svez')">
 🍃 Sitrus & Briz (Təravətli)
 </button>
-
 <button class="quiz-opt-btn" onclick="recommendPerfume('gul')">
 🌹 Qızılgül & Nəfis Çiçək
 </button>
-
 </div>
-
 <div id="quizResult"
 style="margin-top:25px;font-weight:500;font-size:15px;">
 </div>
-
 </div>
 </section>
-
 <!-- SEARCH -->
-
 <section class="search-section" id="perfume-search">
-
 <div class="search-header">
-
 <span class="hero-subtitle">
 NM PARFUME PRIVATE COLLECTION
 </span>
-
 <h2 class="gold-text">
 Ətirinizi Axtarın
 </h2>
-
 <p>
 Ətirin adını və ya brendini yazın
 </p>
-
 </div>
-
 <div class="search-box">
-
 <input
 type="text"
 id="perfumeSearch"
@@ -952,625 +792,426 @@ placeholder="Məsələn: Aventus, Sauvage, Tom Ford..."
 autocomplete="off"
 oninput="searchPerfumes(this.value)"
 >
-
 <i class="fa-solid fa-magnifying-glass search-icon"></i>
-
 </div>
-
 <div id="searchResults" class="search-results"></div>
-
 </section>
-
 <!-- COLLECTION -->
-
 <section class="catalog-section" id="catalog">
-
 <div class="section-header" data-aos="fade-up">
-
 <h2 class="gold-text">
 Seçilmiş Kolleksiya
 </h2>
-
 <p>
 Notlar üzrə uyğun ətri filtrləyin və kəşf edin
 </p>
-
 </div>
-
 <div class="notes-filter"
 style="display:flex;justify-content:center;gap:12px;margin-bottom:40px;flex-wrap:wrap;"
 data-aos="fade-up">
-
 <span class="note-chip active"
 onclick="filterNotes('all',this)"
 style="background:rgba(255,255,255,.03);border:1px solid var(--glass-border);color:var(--text-muted);padding:8px 18px;border-radius:20px;font-size:12px;cursor:pointer;">
 Bütün Kolleksiya
 </span>
-
 <span class="note-chip"
 onclick="filterNotes('oud',this)"
 style="background:rgba(255,255,255,.03);border:1px solid var(--glass-border);color:var(--text-muted);padding:8px 18px;border-radius:20px;font-size:12px;cursor:pointer;">
 Oud & Kəhrəba
 </span>
-
 <span class="note-chip"
 onclick="filterNotes('vanilla',this)"
 style="background:rgba(255,255,255,.03);border:1px solid var(--glass-border);color:var(--text-muted);padding:8px 18px;border-radius:20px;font-size:12px;cursor:pointer;">
 Vanil & Sweet
 </span>
-
 <span class="note-chip"
 onclick="filterNotes('leather',this)"
 style="background:rgba(255,255,255,.03);border:1px solid var(--glass-border);color:var(--text-muted);padding:8px 18px;border-radius:20px;font-size:12px;cursor:pointer;">
 Dəri & Odunsu
 </span>
-
 </div>
-
 <div class="product-grid">
-
 <!-- 1 — ROYAL OUD EXTRAIT -->
-
 <div class="product-card" data-note="oud" data-aos="fade-up">
-
 <div class="product-img-wrapper">
-
 <span class="product-tag">
 Best Seller
 </span>
-
 <img
 src="royaloudextrait.png"
 alt="Royal Oud Extrait"
 >
-
 </div>
-
 <div class="product-details">
-
 <h3 class="product-title">
 Royal Oud Extrait
 </h3>
-
 <p class="product-desc">
 Ağac notları, nəfis kəhrəba və dərin vanil tonlarının mükəmməl harmoniyası.
 </p>
-
 <div class="product-notes">
 <b>Notlar:</b> Qara Ağac, Kəhrəba, Ənbər
 </div>
-
 <div class="product-bottom">
-
 <button
 class="btn-add-cart"
-onclick="addToCart('Royal Oud Extrait',.)"
+onclick="orderWhatsApp('Royal Oud Extrait')"
 >
 <i class="fa-solid fa-plus"></i>
 </button>
-
-</div>
-
 </div>
 </div>
-
-
+</div>
 <!-- 2 — TOBACCO VANILLE -->
-
 <div class="product-card" data-note="leather" data-aos="fade-up">
-
 <div class="product-img-wrapper">
-
 <span class="product-tag">
 Exclusive
 </span>
-
 <img
 src="tobaccovanille.png"
 alt="Tobacco Vanille"
 >
-
 </div>
-
 <div class="product-details">
-
 <h3 class="product-title">
 Tobacco Vanille
 </h3>
-
 <p class="product-desc">
-Tütün, vanil və kakao
+Gilas və rom notları ilə zənginləşdirilmiş, ilıq tütün və şirin vanil lüksü.
 </p>
-
 <div class="product-notes">
 <b>Notlar:</b> Tütün, vanil, kakao və isti ədviyyələrin dəbdəbəli harmoniyası.
 </div>
-
 <div class="product-bottom">
-
 <button
 class="btn-add-cart"
-onclick="addToCart('Tobacco Vanille',.)"
+onclick="orderWhatsApp('Tobacco Vanille')"
 >
 <i class="fa-solid fa-plus"></i>
 </button>
-
-</div>
-
 </div>
 </div>
-
-
-<!-- 3 — VELVET VANILLA GIFT SET -->
-
+</div>
+<!-- 3 — DIOR SAUVAGE -->
 <div class="product-card" data-note="vanilla" data-aos="fade-up">
-
 <div class="product-img-wrapper">
-
 <span class="product-tag">
 Limited Set
 </span>
-
 <img
 src="diorsauvage.png"
 alt="Dior Sauvage"
 >
-
 </div>
-
 <div class="product-details">
-
 <h3 class="product-title">
 Dior Sauvage
 </h3>
-
 <p class="product-desc">
-Bergamot, istiot, lavanda və ambroksanın təravətli və güclü harmoniyası.
+Xüsusi hədiyyəlik qutuda: Parfüm + Mini Travel sprey + Lüks şam.
 </p>
-
 <div class="product-notes">
-<b>Notlar:</b> Bergamot, istiot, lavanda və ambroksan notları.
+<b>Notlar:</b> Madaqaskar Vanili, Badam, Karamel
 </div>
-
 <div class="product-bottom">
-
 <button
 class="btn-add-cart"
-onclick="addToCart('Dior Sauvage',.)"
+onclick="orderWhatsApp('Dior Sauvage')"
 >
 <i class="fa-solid fa-plus"></i>
 </button>
-
-</div>
-
 </div>
 </div>
-
 </div>
-
+</div>
 </section>
-
 <!-- GIFTING -->
-
 <section class="gifting-banner" id="gifting" data-aos="fade-up">
-
 <div class="gifting-text">
-
 <span class="hero-subtitle">
 Eksklüziv Xidmət
 </span>
-
 <h2 class="gold-text">
 Flakon üzərində Özəl Həkkolunma
 </h2>
-
 <p style="color:var(--text-muted);max-width:500px;font-size:14px;">
 Sevdiklərinizə unudulmaz hədiyyə bəxş edin.
 Parfüm flakonunun üzərinə istədiyiniz reza,
 inisial və ya fərdi təbriki həkk edirik.
 </p>
-
 </div>
-
 <a
-href="https://wa.me/994707150040?text=Salam,%20f%C9%99rdi%20qablaşdırma%20v%C9%99%20h%C9%99kkolunma%20haqqında%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
+href="https://wa.me/994707150040?text=Salam,Dior Sauvage haqqinda melumat almaq isteyirem."
 target="_blank"
 class="btn-gold-outline"
 style="background:var(--gold-gradient);color:#000;border:none;padding:12px 28px;">
 Sifariş Et
 </a>
-
 </section>
-
 <!-- REVIEWS -->
-
 <section class="testimonials-section" id="reviews" data-aos="fade-up">
-
 <div class="section-header">
-
 <h2 class="gold-text">
 Müştəri Rəyləri
 </h2>
-
 <p>
 Eksklüziv keyfiyyəti sınayan VIP alıcılarımızın fikirləri
 </p>
-
 </div>
-
 <div class="testimonials-grid">
-
 <div class="testimonial-card">
-
 <div class="stars">
 ★★★★★
 </div>
-
 <p>
 "Royal Oud Extrait ətrinin qalıcılığı möhtəşəmdir!
 Hətta 2 gün keçməsinə baxmayaraq paltardan qoxu getmir."
 </p>
-
 <div class="client-name gold-text">
 Murad Ə.
 </div>
-
 </div>
-
 <div class="testimonial-card">
-
 <div class="stars">
 ★★★★★
 </div>
-
 <p>
 "Hədiyyəlik qablaşdırma və flakonun üzərinə ad yazılması
 xidmətindən istifadə etdim. Yüksək səviyyəli lüks xidmətdir."
 </p>
-
 <div class="client-name gold-text">
 Aysel M.
 </div>
-
 </div>
-
 <div class="testimonial-card">
-
 <div class="stars">
 ★★★★★
 </div>
-
 <p>
 "Kuryer çatdırılması çox sürətli idi. Qutu açılışı zamanı
 hissolunan lüks təravət doğrudan da premium brend hiss etdirir."
 </p>
-
 <div class="client-name gold-text">
 Rəşad K.
 </div>
-
 </div>
-
 </div>
-
 </section>
-
 <!-- CART -->
-
 <div class="overlay" id="overlay" onclick="toggleCart()"></div>
-
 <div class="cart-modal" id="cartModal">
-
 <div class="cart-header">
-
 <h3 class="gold-text">
 Səbətiniz
 </h3>
-
 <button class="close-cart" onclick="toggleCart()">
 <i class="fa-solid fa-xmark"></i>
 </button>
-
 </div>
-
 <div class="cart-items" id="cartItems">
-
 <p style="color:var(--text-muted);text-align:center;margin-top:40px;">
 Səbətiniz boşdur.
 </p>
-
 </div>
-
 <div class="cart-footer">
-
 <button class="btn-checkout" onclick="checkoutWhatsApp()">
 Sifarişi Tamamla (WhatsApp)
 </button>
-
 </div>
-
 </div>
-
 <footer>
-
 <p>
 &copy; 2026 NM PARFUME | Haute Parfumerie & Collection.
 All Rights Reserved.
 </p>
-
 </footer>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
 <script>
-
 AOS.init({
     duration:800,
     once:true,
     easing:'ease-out-cubic'
 });
-
-
 /* ƏTİR BAZASI */
-
 const perfumeDatabase = [
-
 {brand:"Amouage",name:"Epic Man"},
 {brand:"Amouage",name:"Interlude Man"},
-
 {brand:"Armani",name:"Stronger With You Amber"},
 {brand:"Armani",name:"Stronger With You Intensely"},
 {brand:"Armani",name:"Stronger With You Leather"},
 {brand:"Armani",name:"Stronger With You Oud"},
 {brand:"Armani",name:"Stronger With You Parfum"},
 {brand:"Armani",name:"Stronger With You Sandalwood"},
-
 {brand:"Burberry",name:"Hero"},
 {brand:"Bvlgari",name:"Le Gemme Tygar"},
-
 {brand:"Chanel",name:"Allure Homme Sport"},
 {brand:"Chanel",name:"Bleu de Chanel Parfum"},
-
 {brand:"Clive Christian",name:"Amber Wood"},
 {brand:"Clive Christian",name:"Hedonistic"},
 {brand:"Clive Christian",name:"Town & Country"},
-
 {brand:"Creed",name:"Absolu Aventus"},
 {brand:"Creed",name:"Aventus"},
-
 {brand:"Dior",name:"Fahrenheit"},
 {brand:"Dior",name:"Homme Intense"},
 {brand:"Dior",name:"Homme Sport"},
 {brand:"Dior",name:"Sauvage"},
 {brand:"Dior",name:"Sauvage Elixir"},
-
 {brand:"Jean Paul Gaultier",name:"Le Male Blue"},
 {brand:"Jean Paul Gaultier",name:"Le Male Elixir"},
 {brand:"Jean Paul Gaultier",name:"Le Male Le Parfum"},
 {brand:"Jean Paul Gaultier",name:"Ultra Male"},
-
 {brand:"Louis Vuitton",name:"Cactus Garden"},
 {brand:"Louis Vuitton",name:"Imagination"},
 {brand:"Louis Vuitton",name:"L'Immensité"},
-
 {brand:"Roja",name:"Apex Eau Intense"},
 {brand:"Roja",name:"Elysium Pour Homme"},
-
 {brand:"Tom Ford",name:"Oud Wood"},
-
 {brand:"Versace",name:"Eau Fraîche Extreme"},
 {brand:"Versace",name:"Eros"},
 {brand:"Versace",name:"Eros Energy Pour Homme"},
 {brand:"Versace",name:"Eros Flame"},
-
 {brand:"Amouage",name:"Honour Woman"},
-
 {brand:"Burberry",name:"Goddess"},
 {brand:"Burberry",name:"Her"},
 {brand:"Burberry",name:"Her Elixir"},
-
 {brand:"Casamorati",name:"Gran Ballo"},
 {brand:"Casamorati",name:"Lira"},
-
 {brand:"Clive Christian",name:"1872 Feminine"},
-
 {brand:"Dolce & Gabbana",name:"Devotion Eau de Parfum"},
 {brand:"Dolce & Gabbana",name:"Devotion Eau de Parfum Intense"},
 {brand:"Dolce & Gabbana",name:"My Devotion Eau de Parfum"},
-
 {brand:"Givenchy",name:"Irresistible"},
 {brand:"Givenchy",name:"Irresistible Rose Velvet"},
-
 {brand:"Gucci",name:"Bloom"},
 {brand:"Gucci",name:"Flora Gorgeous Gardenia"},
 {brand:"Gucci",name:"Flora Gorgeous Gardenia Intense"},
 {brand:"Gucci",name:"Flora Gorgeous Jasmine"},
 {brand:"Gucci",name:"Flora Gorgeous Magnolia"},
 {brand:"Gucci",name:"Flora Gorgeous Orchid"},
-
 {brand:"Guerlain",name:"Cherry Oud"},
-
 {brand:"Jean Paul Gaultier",name:"La Belle"},
-
 {brand:"Jimmy Choo",name:"I Want Choo"},
 {brand:"Jimmy Choo",name:"I Want Choo Forever"},
 {brand:"Jimmy Choo",name:"I Want Choo Le Parfum"},
 {brand:"Jimmy Choo",name:"I Want Choo With Love"},
-
 {brand:"Kilian",name:"Good Girl Gone Bad"},
-
 {brand:"Miss Dior",name:"Blooming Bouquet"},
 {brand:"Miss Dior",name:"Essence"},
-
 {brand:"Montale",name:"Intense Café"},
 {brand:"Montale",name:"Pure Gold"},
 {brand:"Montale",name:"Rose Elixir"},
-
 {brand:"Mugler",name:"Alien"},
-
 {brand:"Prada",name:"Paradoxe"},
 {brand:"Prada",name:"Paradoxe Orchidea Edition"},
 {brand:"Prada",name:"Paradoxe Pulp Edition"},
-
 {brand:"Tom Ford",name:"Electric Cherry"},
 {brand:"Tom Ford",name:"Lost Cherry"},
-
 {brand:"Yves Saint Laurent",name:"Libre Vanille Couture"},
-
 {brand:"Amouage",name:"Guidance"},
 {brand:"Amouage",name:"Guidance 46"},
 {brand:"Amouage",name:"Love Delight"},
 {brand:"Amouage",name:"The Gift Of Kings"},
-
 {brand:"Armani Privé",name:"Rose d'Arabie"},
 {brand:"Armani Privé",name:"Rouge Malachite"},
 {brand:"Armani Privé",name:"Vert Malachite"},
-
 {brand:"Byredo",name:"Animalique"},
 {brand:"Byredo",name:"Bal d'Afrique"},
 {brand:"Byredo",name:"Gypsy Water"},
-
 {brand:"Casamorati",name:"Mefisto"},
-
 {brand:"Christian Dior Paris",name:"Ambre Nuit"},
 {brand:"Christian Dior Paris",name:"Bois d'Argent"},
 {brand:"Christian Dior Paris",name:"Rouge Trafalgar"},
-
 {brand:"Ex Nihilo",name:"Blue Talisman"},
 {brand:"Ex Nihilo",name:"Fleur Narcotique"},
 {brand:"Ex Nihilo",name:"Gold Immortals Extrait"},
-
 {brand:"Guerlain",name:"Patchouli Paris"},
 {brand:"Guerlain",name:"Tobacco Honey"},
-
 {brand:"Hermès",name:"Ambre Narguilé"},
-
 {brand:"Kilian",name:"Angels' Share"},
 {brand:"Kilian",name:"Black Phantom"},
 {brand:"Kilian",name:"Intoxicated"},
-
 {brand:"Louis Vuitton",name:"Nuit de Feu"},
 {brand:"Louis Vuitton",name:"Spell On You"},
 {brand:"Louis Vuitton",name:"Symphony"},
-
 {brand:"Mancera",name:"Cedrat Boise"},
 {brand:"Mancera",name:"Instant Crush"},
 {brand:"Mancera",name:"Red Tobacco"},
 {brand:"Mancera",name:"Roses Vanille"},
 {brand:"Mancera",name:"Tonka Cola"},
-
 {brand:"Matiere Premiere",name:"Vanilla Powder"},
-
 {brand:"Montale",name:"Black Aoud"},
 {brand:"Montale",name:"Chocolate Greedy"},
 {brand:"Montale",name:"Roses Musk"},
 {brand:"Montale",name:"Starry Nights"},
 {brand:"Montale",name:"Vanille Absolu"},
-
 {brand:"Nasomatto",name:"Black Afgano"},
-
 {brand:"Orto Parisi",name:"Megamare"},
 {brand:"Orto Parisi",name:"Terroni"},
-
 {brand:"Sospiro",name:"Assento"},
 {brand:"Sospiro",name:"Erba Pura"},
-
 {brand:"Tiziana Terenzi",name:"Andromeda"},
 {brand:"Tiziana Terenzi",name:"Kirke"},
-
 {brand:"Tom Ford",name:"Bitter Peach"},
 {brand:"Tom Ford",name:"Figue Erotique"},
 {brand:"Tom Ford",name:"Fucking Fabulous"},
 {brand:"Tom Ford",name:"Tobacco Vanille"},
-
 {brand:"Xerjoff",name:"Accento"},
 {brand:"Xerjoff",name:"Alexandria II"},
 {brand:"Xerjoff",name:"Amabile"},
 {brand:"Xerjoff",name:"Erba Pura"},
 {brand:"Xerjoff",name:"More Than Words"},
 {brand:"Xerjoff",name:"Naxos"}
-
 ];
-
-
 /* AXTARIŞ */
-
 function normalizeText(text) {
-
     return text
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g,"");
-
 }
-
 function searchPerfumes(value) {
-
     const results = document.getElementById("searchResults");
-
     const query = normalizeText(value.trim());
-
     if (!query) {
-
         results.classList.remove("show");
         results.innerHTML = "";
-
         return;
     }
-
     const matches = perfumeDatabase.filter(perfume => {
-
         const name = normalizeText(perfume.name);
         const brand = normalizeText(perfume.brand);
-
         return name.includes(query) || brand.includes(query);
-
     });
-
     results.classList.add("show");
-
     if (!matches.length) {
-
         results.innerHTML = `
             <div class="search-empty">
                 <i class="fa-solid fa-wind"></i>
                 Bu adda ətir tapılmadı.
             </div>
         `;
-
         return;
     }
-
     results.innerHTML = `
-
         <div class="search-count">
             ${matches.length} nəticə tapıldı
         </div>
-
         ${matches.map(perfume => `
-
             <div class="search-result">
-
                 <div class="search-info">
-
                     <div class="search-bottle">
                         <i class="fa-solid fa-bottle-droplet"></i>
                     </div>
-
                     <div>
-
                         <div class="search-name">
                             ${escapeHTML(perfume.name)}
                         </div>
-
                         <div class="search-brand">
                             ${escapeHTML(perfume.brand)}
                         </div>
-
                     </div>
-
                 </div>
-
                 <a
                     class="search-whatsapp"
                     target="_blank"
@@ -1580,245 +1221,143 @@ function searchPerfumes(value) {
                         " ətri ilə maraqlanıram. Ətraflı məlumat verə bilərsiniz?"
                     )}"
                 >
-
                     <i class="fa-brands fa-whatsapp"></i>
-
                 </a>
-
             </div>
-
         `).join("")}
-
     `;
-
 }
-
 function escapeHTML(text) {
-
     const div = document.createElement("div");
-
     div.textContent = text;
-
     return div.innerHTML;
-
 }
-
-
 /* QUIZ */
-
 function recommendPerfume(type) {
-
     const res = document.getElementById("quizResult");
-
     if(type === "odunsu") {
-
         res.innerHTML =
         "Sizə Tövsiyə Edirik: <span class='gold-text'>Royal Oud Extrait</span> - Dərin odunsu və kəhrəba notları.";
-
     }
-
     else if(type === "sirin") {
-
         res.innerHTML =
         "Sizə Tövsiyə Edirik: <span class='gold-text'>Velvet Vanilla Set</span> - Nəfis vanil və badam harmoniyası.";
-
     }
-
     else {
-
         res.innerHTML =
-        "Sizə Tövsiyə Edirik: <span class='gold-text'>Tobacco Vanille</span> - Tütün, vanil, kakao və isti ədviyyələrin dəbdəbəli harmoniyası.";
-
+        "Sizə Tövsiyə Edirik: <span class='gold-text'>Tobacco Vanille</span> - Gilas və rom notları ilə zənginləşdirilmiş";
     }
-
 }
-
-
 /* FILTER */
-
 function filterNotes(category,element) {
-
     const cards = document.querySelectorAll(".product-card");
     const chips = document.querySelectorAll(".note-chip");
-
     chips.forEach(c => c.classList.remove("active"));
-
     element.classList.add("active");
-
     cards.forEach(card => {
-
         if(category === "all" || card.dataset.note === category) {
-
             card.style.display = "flex";
-
         } else {
-
             card.style.display = "none";
-
         }
-
     });
-
 }
-
-
 /* CART */
-
 let cart = [];
-
 function addToCart(title,price) {
-
     cart.push({
         title:title,
         price:price
     });
-
     updateCartUI();
-
     toggleCart(true);
-
 }
-
 function updateCartUI() {
-
     const container =
         document.getElementById("cartItems");
-
     const count =
         document.getElementById("cartCount");
-
     count.innerText = cart.length;
-
     if(!cart.length) {
-
         container.innerHTML =
         `
         <p style="color:var(--text-muted);text-align:center;margin-top:40px;">
             Səbətiniz boşdur.
         </p>
         `;
-
         return;
     }
-
     container.innerHTML = "";
-
     cart.forEach((item,index) => {
-
         container.innerHTML += `
-
         <div class="cart-item">
-
             <div>
-
                 <h4 style="font-size:14px;font-weight:500;">
                     ${escapeHTML(item.title)}
                 </h4>
-
             </div>
-
             <button
                 onclick="removeFromCart(${index})"
                 style="background:none;border:none;color:#ff4d4d;cursor:pointer;"
             >
-
                 <i class="fa-solid fa-trash-can"></i>
-
             </button>
-
         </div>
-
         `;
-
     });
-
 }
-
 function removeFromCart(index) {
-
     cart.splice(index,1);
-
     updateCartUI();
-
 }
-
 function toggleCart(forceOpen=false) {
-
     const modal =
         document.getElementById("cartModal");
-
     const overlay =
         document.getElementById("overlay");
-
     if(forceOpen) {
-
         modal.classList.add("open");
         overlay.classList.add("active");
-
     }
-
     else {
-
         modal.classList.toggle("open");
         overlay.classList.toggle("active");
-
     }
-
 }
-
-
 /* WHATSAPP CHECKOUT */
-
 function checkoutWhatsApp() {
-
     if(!cart.length) {
-
         alert("Səbətiniz boşdur!");
-
         return;
     }
-
     let message =
         "Salam, NM Parfume-dən yeni sifarişim var:\n\n";
-
     let subtotal = 0;
-
     cart.forEach((item,i) => {
-
         message +=
             `${i + 1}. ${item.title} - ${item.price} AZN\n`;
-
         subtotal += item.price;
-
     });
-
     message +=
         `\n💰 Ümumi Məbləğ: ${subtotal} AZN`;
-
     const encoded =
         encodeURIComponent(message);
-
     window.open(
         `https://wa.me/994707150040?text=${encoded}`,
         "_blank"
     );
-
 }
-
+/* BİRBAŞA WHATSAPP SİFARİŞİ */
+function orderWhatsApp(perfumeName) {
+    const message =
+        "Salam, NM PARFUME-də " +
+        perfumeName +
+        " ətri ilə maraqlanıram. Ətraflı məlumat verə bilərsiniz?";
+    const whatsappURL =
+        "https://wa.me/994707150040?text=" +
+        encodeURIComponent(message);
+    window.open(whatsappURL, "_blank");
+}
 </script>
-
-<script>
-fetch('https://api.telegram.org/bot8680349411:AAFUHAA3DRvWNWUT3vqwwTRuR72ZJeLN1UY/sendMessage', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify({
-    chat_id: '6612966500',
-    text: '🔔 Yeni ziyarətçi!\nSəhifə: ' + window.location.href + '\nVaxt: ' + new Date().toLocaleString('az-AZ')
-  })
-});
-</script>
-
-
-    
 </body>
 </html>
