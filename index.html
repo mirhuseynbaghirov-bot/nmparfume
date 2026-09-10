@@ -16,7 +16,7 @@
     <style>
         :root {
             --bg-deep: #050505;
-            --bg-card: rgba(18, 18, 18, 0.85);
+            --bg-card: rgba(18, 18, 18, 0.75);
             --gold-primary: #d4af37;
             --gold-light: #f3e5ab;
             --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
@@ -173,12 +173,12 @@
         /* Hero */
         .hero {
             position: relative;
-            min-height: 80vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 140px 20px 60px;
+            padding: 140px 20px 80px;
             background: radial-gradient(ellipse at center, rgba(20, 20, 20, 0.6) 0%, rgba(5, 5, 5, 1) 100%);
         }
 
@@ -229,121 +229,226 @@
             font-weight: 300;
         }
 
-        /* Search Section */
-        .search-section {
-            padding: 60px 6% 80px;
-            max-width: 1000px;
+        .hero-btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* Scent Finder / Quiz Widget */
+        .quiz-section {
+            padding: 80px 6%;
+            background: rgba(12, 12, 12, 0.9);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .quiz-card {
+            max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 10;
-        }
-
-        .search-box-wrapper {
-            position: relative;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        .search-input {
-            width: 100%;
-            background: rgba(18, 18, 18, 0.85);
+            background: var(--bg-card);
             border: 1px solid var(--border-gold);
-            padding: 18px 25px 18px 55px;
-            border-radius: 50px;
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .quiz-options {
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .quiz-opt-btn {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--glass-border);
             color: var(--text-main);
-            font-size: 16px;
-            outline: none;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 13px;
         }
 
-        .search-input:focus {
+        .quiz-opt-btn:hover {
             border-color: var(--gold-primary);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 22px;
-            top: 50%;
-            transform: translateY(-50%);
             color: var(--gold-primary);
-            font-size: 18px;
+            background: rgba(212, 175, 55, 0.05);
         }
 
-        .search-results-grid {
+        /* Note Categories Filter */
+        .notes-filter {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .note-chip {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .note-chip.active, .note-chip:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        /* Catalog & Products */
+        .catalog-section {
+            padding: 80px 6% 100px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 38px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        .perfume-card {
+        .product-card {
             background: var(--bg-card);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
+            flex-direction: column;
         }
 
-        .perfume-card:hover {
+        .product-card:hover {
+            transform: translateY(-8px);
             border-color: var(--border-gold);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
         }
 
-        .perfume-info h4 {
-            font-size: 16px;
+        .product-img-wrapper {
+            height: 280px;
+            background: radial-gradient(circle at center, rgba(35,35,35,0.8) 0%, rgba(15,15,15,1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .product-img-wrapper i {
+            font-size: 60px;
+            color: rgba(212, 175, 55, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover .product-img-wrapper i {
+            color: var(--gold-primary);
+            transform: scale(1.15);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(5, 5, 5, 0.75);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-primary);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 15px;
+        }
+
+        .product-details {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .perfume-info span {
-            font-size: 12px;
-            color: var(--text-muted);
-            display: block;
             margin-bottom: 8px;
         }
 
-        .perfume-price {
-            font-size: 16px;
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            font-weight: 300;
+        }
+
+        .product-notes {
+            font-size: 11px;
+            color: var(--gold-light);
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .product-price {
+            font-size: 20px;
             font-weight: 700;
         }
 
-        .btn-add-search {
+        .btn-add-cart {
             background: transparent;
             border: 1px solid var(--gold-primary);
             color: var(--gold-primary);
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            flex-shrink: 0;
-            margin-left: 15px;
         }
 
-        .btn-add-search:hover {
+        .btn-add-cart:hover {
             background: var(--gold-gradient);
             color: #000;
             border-color: transparent;
         }
 
-        /* Gifting Banner */
+        /* Custom Engraving / Gift Banner */
         .gifting-banner {
             max-width: 1200px;
-            margin: 40px auto 80px;
-            background: linear-gradient(135deg, rgba(20,20,20,0.9), rgba(10,10,10,0.9));
+            margin: 60px auto;
+            background: linear-gradient(135deg, rgba(20,20,20,0.9), rgba(10,10,10,0.9)), url('https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=1000') center/cover;
             border: 1px solid var(--border-gold);
             border-radius: 24px;
-            padding: 50px 40px;
+            padding: 60px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -352,8 +457,8 @@
         }
 
         .gifting-text h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
+            font-size: 34px;
+            margin-bottom: 15px;
         }
 
         /* Testimonials Section */
@@ -511,7 +616,8 @@
         <a href="#" class="nav-logo gold-text">NM PARFUME</a>
         
         <ul class="nav-links">
-            <li><a href="#search-section">Ətir Axtarışı</a></li>
+            <li><a href="#catalog">Kolleksiya</a></li>
+            <li><a href="#scent-finder">Ətir Təyini</a></li>
             <li><a href="#gifting">Hədiyyəlik</a></li>
             <li><a href="#reviews">Rəylər</a></li>
         </ul>
@@ -531,19 +637,105 @@
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
             <span class="hero-subtitle">Haute Parfumerie & Custom Collection</span>
             <h1>Öz Unikal <span class="gold-text">Auranı</span> Kəşf Et</h1>
-            <p>Sevdiyiniz brend və ya not üzrə istənilən ətri anında axtarın və sifariş edin.</p>
+            <p>Fransız notlarının lüks toxunuşu, xüsusi hədiyyəlik qablaşdırmalar və fərdiləşdirilmiş premium ətirlər.</p>
+            <div class="hero-btn-group">
+                <a href="#catalog" class="btn-gold-outline" style="background: var(--gold-gradient); color: #000; border: none;">Kolleksiyaya Bax</a>
+                <a href="#scent-finder" class="btn-gold-outline">Ətirini Tap</a>
+            </div>
         </div>
     </section>
 
-    <!-- Interactive Search Section -->
-    <section class="search-section" id="search-section" data-aos="fade-up">
-        <div class="search-box-wrapper">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="searchInput" class="search-input" placeholder="Ətir adını və ya brendi yazın (məs: Baccarat, Creed, Tom Ford)..." oninput="handleSearch()">
+    <!-- Interactive Scent Finder Quiz Section -->
+    <section class="quiz-section" id="scent-finder" data-aos="fade-up">
+        <div class="quiz-card">
+            <span class="hero-subtitle">İnteraktiv Xidmət</span>
+            <h2 class="gold-text" style="font-size: 30px; margin-bottom: 10px;">Hansı Ətir Sizə Uyğundur?</h2>
+            <p style="color: var(--text-muted); font-size: 14px;">Aşağıdakı tərzi seçin, sizə uyğun eksklüziv notu tapmağa kömək edək:</p>
+            
+            <div class="quiz-options">
+                <button class="quiz-opt-btn" onclick="recommendPerfume('odunsu')">🔥 Odunsu & Dəri (Dərin)</button>
+                <button class="quiz-opt-btn" onclick="recommendPerfume('sirin')">✨ Vanil & Amber (Şirin)</button>
+                <button class="quiz-opt-btn" onclick="recommendPerfume('svez')">🍃 Sitrus & Briz (Təravətli)</button>
+                <button class="quiz-opt-btn" onclick="recommendPerfume('gul')">🌹 Qızılgül & Nəfis Çiçək</button>
+            </div>
+            <div id="quizResult" style="margin-top: 25px; font-weight: 500; font-size: 15px;"></div>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section class="catalog-section" id="catalog">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="gold-text">Seçilmiş Kolleksiya</h2>
+            <p>Notlar üzrə uyğun ətri filtrləyin və kəşf edin</p>
         </div>
 
-        <div id="searchResults" class="search-results-grid">
-            <!-- Search results dynamically loaded here -->
+        <!-- Note Chips Filter -->
+        <div class="notes-filter" data-aos="fade-up">
+            <span class="note-chip active" onclick="filterNotes('all')">Bütün Kolleksiya</span>
+            <span class="note-chip" onclick="filterNotes('oud')">Oud & Kəhrəba</span>
+            <span class="note-chip" onclick="filterNotes('vanilla')">Vanil & Sweet</span>
+            <span class="note-chip" onclick="filterNotes('leather')">Dəri & Odunsu</span>
+        </div>
+
+        <div class="product-grid">
+
+            <!-- Product 1 -->
+            <div class="product-card" data-note="oud" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-img-wrapper">
+                    <span class="product-tag">Best Seller</span>
+                    <i class="fa-solid fa-bottle-droplet"></i>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">Royal Oud Extrait</h3>
+                    <p class="product-desc">Ağac notları, nəfis kəhrəba və dərin vanil tonlarının mükəmməl harmoniyası.</p>
+                    <div class="product-notes"><b>Notlar:</b> Qara Ağac, Kəhrəba, Ənbər</div>
+                    <div class="product-bottom">
+                        <span class="product-price gold-text">85 AZN</span>
+                        <button class="btn-add-cart" onclick="addToCart('Royal Oud Extrait', 85)">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-note="leather" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-img-wrapper">
+                    <span class="product-tag">Exclusive</span>
+                    <i class="fa-solid fa-wine-bottle"></i>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">Imperial Rose & Leather</h3>
+                    <p class="product-desc">Qara dəri notları ilə harmanlanmış, zərif fransız qızılgülü təravəti.</p>
+                    <div class="product-notes"><b>Notlar:</b> İtalyan Dərisi, Qızılgül, Səndəl</div>
+                    <div class="product-bottom">
+                        <span class="product-price gold-text">95 AZN</span>
+                        <button class="btn-add-cart" onclick="addToCart('Imperial Rose & Leather', 95)">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-note="vanilla" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-img-wrapper">
+                    <span class="product-tag">Limited Set</span>
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">Velvet Vanilla Gift Set</h3>
+                    <p class="product-desc">Xüsusi hədiyyəlik qutuda: Parfüm + Mini Travel sprey + Lüks şam.</p>
+                    <div class="product-notes"><b>Notlar:</b> Madaqaskar Vanili, Badam, Karamel</div>
+                    <div class="product-bottom">
+                        <span class="product-price gold-text">120 AZN</span>
+                        <button class="btn-add-cart" onclick="addToCart('Velvet Vanilla Gift Set', 120)">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -552,22 +744,22 @@
         <div class="gifting-text">
             <span class="hero-subtitle">Eksklüziv Xidmət</span>
             <h2 class="gold-text">Flakon üzərində Özəl Həkkolunma</h2>
-            <p style="color: var(--text-muted); max-width: 500px; font-size: 14px;">Sevdiklərinizə unudulmaz hədiyyə bəxş edin. Parfüm flakonunun üzərinə istədiyiniz imza, inisial və ya fərdi təbriki həkk edirik.</p>
+            <p style="color: var(--text-muted); max-width: 500px; font-size: 14px;">Sevdiklərinizə unudulmaz hədiyyə bəxş edin. Parfüm flakonunun üzərinə istədiyiniz reza, inisial və ya fərdi təbriki həkk edirik.</p>
         </div>
         <a href="https://wa.me/994707150040?text=Salam,%20f%C9%99rdi%20qablaşdırma%20v%C9%99%20h%C9%99kkolunma%20haqqında%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m." target="_blank" class="btn-gold-outline" style="background: var(--gold-gradient); color:#000; border:none; padding:12px 28px;">Sifariş Et</a>
     </section>
 
     <!-- Testimonials / Customer Reviews Section -->
     <section class="testimonials-section" id="reviews" data-aos="fade-up">
-        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-            <h2 class="gold-text" style="font-size: 34px;">Müştəri Rəyləri</h2>
-            <p style="color: var(--text-muted);">Eksklüziv keyfiyyəti sınayan VIP alıcılarımızın fikirləri</p>
+        <div class="section-header">
+            <h2 class="gold-text">Müştəri Rəyləri</h2>
+            <p>Eksklüziv keyfiyyəti sınayan VIP alıcılarımızın fikirləri</p>
         </div>
 
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p>"Axtardığım Baccarat Rouge 540 ətrini dərhal tapdım. Qalıcılığı və təravəti mükəmməldir!"</p>
+                <p>"Royal Oud Extrait ətrinin qalıcılığı möhtəşəmdir! Hətta 2 gün keçməsinə baxmayaraq paltardan qoxu getmir."</p>
                 <div class="client-name gold-text">Murad Ə.</div>
             </div>
             <div class="testimonial-card">
@@ -577,7 +769,7 @@
             </div>
             <div class="testimonial-card">
                 <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p>"Kuryer çatdırılması çox sürətli idi. Qutu açılışı zamanı hissolunan lüks təravət doğrudan da premium brend hiss etdirir."</p>
+                <p>"Kuryer çatdırılması çox sürətli idi. Qutu açılışı zamanı hissolunan lüks təravət doğrudan da preumium brend hiss etdirir."</p>
                 <div class="client-name gold-text">Rəşad K.</div>
             </div>
         </div>
@@ -621,75 +813,33 @@
             easing: 'ease-out-cubic'
         });
 
-        // Full Database from Perfume Catalogue PDF
-        const perfumeDatabase = [
-            { name: "Baccarat Rouge 540", brand: "Maison Francis Kurkdjian", price: 95 },
-            { name: "Aventus", brand: "Creed", price: 90 },
-            { name: "Lost Cherry", brand: "Tom Ford", price: 85 },
-            { name: "Tobacco Vanille", brand: "Tom Ford", price: 85 },
-            { name: "Oud Wood", brand: "Tom Ford", price: 85 },
-            { name: "Sauvage Elixir", brand: "Dior", price: 80 },
-            { name: "Delina Exclusif", brand: "Parfums de Marly", price: 90 },
-            { name: "Layton", brand: "Parfums de Marly", price: 85 },
-            { name: "Megamare", brand: "Orto Parisi", price: 85 },
-            { name: "Ganymede", brand: "Marc-Antoine Barrois", price: 90 },
-            { name: "Baccarat Rouge 540 Extrait", brand: "MFK", price: 110 },
-            { name: "Erba Pura", brand: "Xerjoff", price: 85 },
-            { name: "Naxos", brand: "Xerjoff", price: 90 },
-            { name: "Black Afgano", brand: "Nasomatto", price: 80 },
-            { name: "Good Girl Gone Bad", brand: "By Kilian", price: 95 },
-            { name: "Angels' Share", brand: "By Kilian", price: 95 },
-            { name: "Baccarat Grand Soir", brand: "MFK", price: 85 },
-            { name: "Bleu de Chanel Extrait", brand: "Chanel", price: 75 },
-            { name: "Gipsy Water", brand: "Byredo", price: 80 },
-            { name: "Bal d'Afrique", brand: "Byredo", price: 80 }
-        ];
-
         let cart = [];
 
-        function renderInitialPerfumes() {
-            // Show top popular perfumes when page loads
-            renderSearchResults(perfumeDatabase.slice(0, 6));
+        function recommendPerfume(type) {
+            const res = document.getElementById('quizResult');
+            if(type === 'odunsu') {
+                res.innerHTML = "Sizə Tövsiyə Edirik: <span class='gold-text'>Royal Oud Extrait</span> - Dərin odunsu va kəhrəba notları.";
+            } else if(type === 'sirin') {
+                res.innerHTML = "Sizə Tövsiyə Edirik: <span class='gold-text'>Velvet Vanilla Set</span> - Nəfis vanil və badam harmoniyası.";
+            } else if(type === 'gul' || type === 'svez') {
+                res.innerHTML = "Sizə Tövsiyə Edirik: <span class='gold-text'>Imperial Rose & Leather</span> - Zərif qızılgül və dəri brizləri.";
+            }
         }
 
-        function handleSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            if (query === '') {
-                renderSearchResults(perfumeDatabase.slice(0, 6));
-                return;
-            }
+        function filterNotes(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const chips = document.querySelectorAll('.note-chip');
 
-            const filtered = perfumeDatabase.filter(item => 
-                item.name.toLowerCase().includes(query) || 
-                item.brand.toLowerCase().includes(query)
-            );
+            chips.forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
 
-            renderSearchResults(filtered);
-        }
-
-        function renderSearchResults(items) {
-            const container = document.getElementById('searchResults');
-            
-            if (items.length === 0) {
-                container.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 30px;">
-                        Axtarışa uyğun ətir tapılmadı. Özel sifariş üçün <a href="https://wa.me/994707150040" style="color: var(--gold-primary);">WhatsApp</a> üzərindən yazın.
-                    </div>`;
-                return;
-            }
-
-            container.innerHTML = items.map(p => `
-                <div class="perfume-card">
-                    <div class="perfume-info">
-                        <h4>${p.name}</h4>
-                        <span>${p.brand}</span>
-                        <div class="perfume-price gold-text">${p.price} AZN</div>
-                    </div>
-                    <button class="btn-add-search" onclick="addToCart('${p.name}', ${p.price})">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            `).join('');
+            cards.forEach(card => {
+                if(category === 'all' || card.dataset.note === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
 
         function addToCart(title, price) {
@@ -764,14 +914,11 @@
                 subtotal += item.price;
             });
 
-            message += `\n💰 Ümumi Məbləğ: ${subtotal} AZN`;
+            message += `\n💰 Umumi Mebleg: ${subtotal} AZN`;
 
             const encoded = encodeURIComponent(message);
             window.open(`https://wa.me/994707150040?text=${encoded}`, '_blank');
         }
-
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', renderInitialPerfumes);
     </script>
 </body>
 </html>
