@@ -712,13 +712,6 @@ header {
     border-top:1px solid var(--glass-border);
 }
 
-.cart-total {
-    display:flex;
-    justify-content:space-between;
-    font-size:17px;
-    margin-bottom:15px;
-}
-
 .btn-checkout {
     width:100%;
     background:var(--gold-gradient);
@@ -834,6 +827,8 @@ VIP Əlaqə
 
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
 
 <div class="hero-watermark-logo"></div>
@@ -868,6 +863,8 @@ Kolleksiyaya Bax
 
 </div>
 </section>
+
+<!-- QUIZ -->
 
 <section class="quiz-section" id="scent-finder" data-aos="fade-up">
 
@@ -910,6 +907,8 @@ style="margin-top:25px;font-weight:500;font-size:15px;">
 </div>
 </section>
 
+<!-- SEARCH -->
+
 <section class="search-section" id="perfume-search">
 
 <div class="search-header">
@@ -946,6 +945,8 @@ oninput="searchPerfumes(this.value)"
 <div id="searchResults" class="search-results"></div>
 
 </section>
+
+<!-- COLLECTION -->
 
 <section class="catalog-section" id="catalog">
 
@@ -993,7 +994,7 @@ Dəri & Odunsu
 
 <div class="product-grid">
 
-<!-- 1-ci ƏTİR -->
+<!-- 1 -->
 
 <div class="product-card" data-note="oud" data-aos="fade-up">
 
@@ -1031,8 +1032,7 @@ onclick="addToCart('Royal Oud Extrait',85)">
 </div>
 </div>
 
-
-<!-- 2-ci ƏTİR -->
+<!-- 2 -->
 
 <div class="product-card" data-note="leather" data-aos="fade-up">
 
@@ -1070,8 +1070,7 @@ onclick="addToCart('Imperial Rose & Leather',95)">
 </div>
 </div>
 
-
-<!-- 3-cü ƏTİR -->
+<!-- 3 -->
 
 <div class="product-card" data-note="vanilla" data-aos="fade-up">
 
@@ -1113,6 +1112,8 @@ onclick="addToCart('Velvet Vanilla Gift Set',120)">
 
 </section>
 
+<!-- GIFTING -->
+
 <section class="gifting-banner" id="gifting" data-aos="fade-up">
 
 <div class="gifting-text">
@@ -1142,6 +1143,8 @@ Sifariş Et
 </a>
 
 </section>
+
+<!-- REVIEWS -->
 
 <section class="testimonials-section" id="reviews" data-aos="fade-up">
 
@@ -1214,6 +1217,8 @@ Rəşad K.
 
 </section>
 
+<!-- CART -->
+
 <div class="overlay" id="overlay" onclick="toggleCart()"></div>
 
 <div class="cart-modal" id="cartModal">
@@ -1239,16 +1244,6 @@ Səbətiniz boşdur.
 </div>
 
 <div class="cart-footer">
-
-<div class="cart-total">
-
-<span>Cəmi:</span>
-
-<span class="gold-text" id="cartTotal">
-0 AZN
-</span>
-
-</div>
 
 <button class="btn-checkout" onclick="checkoutWhatsApp()">
 Sifarişi Tamamla (WhatsApp)
@@ -1277,6 +1272,8 @@ AOS.init({
     easing:'ease-out-cubic'
 });
 
+
+/* ƏTİR BAZASI */
 
 const perfumeDatabase = [
 
@@ -1458,6 +1455,8 @@ const perfumeDatabase = [
 ];
 
 
+/* AXTARIŞ */
+
 function normalizeText(text) {
 
     return text
@@ -1493,7 +1492,7 @@ function searchPerfumes(value) {
 
     results.classList.add("show");
 
-    if(!matches.length) {
+    if (!matches.length) {
 
         results.innerHTML = `
             <div class="search-empty">
@@ -1569,6 +1568,8 @@ function escapeHTML(text) {
 }
 
 
+/* QUIZ */
+
 function recommendPerfume(type) {
 
     const res = document.getElementById("quizResult");
@@ -1597,6 +1598,8 @@ function recommendPerfume(type) {
 }
 
 
+/* FILTER */
+
 function filterNotes(category,element) {
 
     const cards = document.querySelectorAll(".product-card");
@@ -1623,6 +1626,8 @@ function filterNotes(category,element) {
 }
 
 
+/* CART */
+
 let cart = [];
 
 
@@ -1648,10 +1653,8 @@ function updateCartUI() {
     const count =
         document.getElementById("cartCount");
 
-    const total =
-        document.getElementById("cartTotal");
-
     count.innerText = cart.length;
+
 
     if(!cart.length) {
 
@@ -1662,18 +1665,14 @@ function updateCartUI() {
         </p>
         `;
 
-        total.innerText = "0 AZN";
-
         return;
     }
 
-    let subtotal = 0;
 
     container.innerHTML = "";
 
-    cart.forEach((item,index) => {
 
-        subtotal += item.price;
+    cart.forEach((item,index) => {
 
         container.innerHTML += `
 
@@ -1684,10 +1683,6 @@ function updateCartUI() {
                 <h4 style="font-size:14px;font-weight:500;">
                     ${escapeHTML(item.title)}
                 </h4>
-
-                <span class="gold-text" style="font-size:13px;">
-                    ${item.price} AZN
-                </span>
 
             </div>
 
@@ -1705,8 +1700,6 @@ function updateCartUI() {
         `;
 
     });
-
-    total.innerText = subtotal + " AZN";
 
 }
 
@@ -1728,6 +1721,7 @@ function toggleCart(forceOpen=false) {
     const overlay =
         document.getElementById("overlay");
 
+
     if(forceOpen) {
 
         modal.classList.add("open");
@@ -1745,6 +1739,8 @@ function toggleCart(forceOpen=false) {
 }
 
 
+/* WHATSAPP CHECKOUT */
+
 function checkoutWhatsApp() {
 
     if(!cart.length) {
@@ -1754,10 +1750,13 @@ function checkoutWhatsApp() {
         return;
     }
 
+
     let message =
         "Salam, NM Parfume-dən yeni sifarişim var:\n\n";
 
+
     let subtotal = 0;
+
 
     cart.forEach((item,i) => {
 
@@ -1768,11 +1767,14 @@ function checkoutWhatsApp() {
 
     });
 
+
     message +=
         `\n💰 Ümumi Məbləğ: ${subtotal} AZN`;
 
+
     const encoded =
         encodeURIComponent(message);
+
 
     window.open(
         `https://wa.me/994707150040?text=${encoded}`,
